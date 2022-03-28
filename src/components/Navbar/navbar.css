@@ -1,0 +1,168 @@
+.navbar {
+  background-color: var(--night);
+  width: 100%;
+  height: 8rem;
+  top: 0;
+  z-index: 3;
+  color: var(--day);
+  position: sticky;
+}
+
+.nav-inner {
+  width: 90%;
+}
+
+.nav__icon_magnifying {
+  font-size: 2rem;
+  border: none;
+  margin: 0 0.5rem;
+}
+
+.navbar--container-strt {
+  width: 30%;
+  font-size: 4rem;
+}
+
+.navbar--container-strt .icon__hamburger {
+  margin-right: 1rem;
+  font-size: 4rem;
+  cursor: pointer;
+}
+
+.brand-name {
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.navbar--container-middle {
+  width: 30%;
+  height: 3.5rem;
+  background-color: var(--day);
+  display: flex;
+  align-items: center;
+  border-radius: 0.4rem;
+}
+
+.navbar--container-end {
+  font-size: 0.5rem;
+  justify-content: flex-end;
+  width: 30%;
+}
+
+.input-dark {
+  border: none;
+  display: flex;
+  align-items: center;
+  height: 3.5rem;
+  width: 70%;
+  font-size: 2rem;
+  padding: 0.5rem;
+  transition: 360ms;
+  outline: transparent;
+  border: none;
+  border-left: 0.1rem solid var(--dark);
+}
+
+.btn-nav {
+  display: inline-flex;
+  width: 10rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: 0.1rem solid var(--day);
+  background-color: var(--night);
+  color: var(--day);
+  border-radius: 0.2rem;
+  transition: 360ms;
+}
+
+.btn-nav:hover {
+  background-color: var(--day);
+  color: var(--night);
+}
+
+.nav-icon-container > div {
+  font-size: 2.5rem;
+  margin-right: 2rem;
+  transition: 360ms;
+}
+
+.nav-icon-container > div:hover {
+  color: var(--dark);
+}
+
+.btn-search-nav > div {
+  color: var(--night);
+  font-size: 2rem;
+  padding: 0.5rem;
+  border-right: 0.05rem solid var(--dark);
+}
+
+.btn-search-nav {
+  background-color: transparent;
+  border: none;
+  height: 100%;
+}
+
+/* ------------------------------------------media queries */
+
+@media screen and (max-width: 768px) {
+  .brand-name {
+    font-size: 2.5rem;
+  }
+
+  .navbar--container-strt .icon__hamburger {
+    font-size: 3rem;
+  }
+
+  .btn-search-nav > div {
+    color: var(--night);
+    font-size: 1.6rem;
+    padding: 0.5rem;
+    border-right: 0.05rem solid var(--dark);
+  }
+
+  .btn-nav {
+    width: 6rem;
+    padding: 0.5rem;
+    font-size: 1.4rem;
+  }
+
+  .input-dark {
+    height: 2.5rem;
+    font-size: 1.6rem;
+    padding: 0.5rem;
+  }
+}
+
+.badge-danger {
+  font-size: 1rem;
+  font-weight: bold;
+  top: -1rem;
+  right: -1rem;
+}
+
+@media screen and (max-width: 450px) {
+  .navbar--container-middle {
+    display: none;
+  }
+
+  .brand-name {
+    display: none;
+  }
+
+  .input-dark {
+    display: none;
+  }
+
+  .btn-search-nav > div {
+    font-size: 2rem;
+    border: none;
+  }
+
+  .btn-search-nav > .fa-solid {
+    font-size: 2rem;
+    border: none;
+    color: var(--day);
+  }
+}
