@@ -28,7 +28,7 @@ const Navbar = () => {
                         <div className="nav-icon-container">
                             <div className="nav-heart-icon pos-rel">
                                 <FontAwesomeIcon icon={faShoppingCart} className="nav__icons" />
-                                <span className="badge badge-danger"></span>
+                                <span className="badge ">6</span>
 
                             </div>
                         </div>
