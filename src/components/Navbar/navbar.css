@@ -76,6 +76,15 @@
   transition: 360ms;
 }
 
+.badge {
+  font-size: 1.1rem;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  top: -1rem;
+  right: -1rem;
+}
+
 .btn-nav:hover {
   background-color: white;
   color: red;
@@ -133,15 +142,6 @@
     font-size: 1.6rem;
     padding: 0.5rem;
   }
-}
-
-.badge {
-  font-size: 1.1rem;
-  background-color: white;
-  color: red;
-  font-weight: bold;
-  top: -1rem;
-  right: -1rem;
 }
 
 @media screen and (max-width: 450px) {
