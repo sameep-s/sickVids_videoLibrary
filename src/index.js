@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 // import App from "./App";
-import { Navbar } from "./components/index";
+import { Login } from "./components/index";
 import { makeServer } from "./server";
 
 // Call make Server
@@ -10,7 +10,7 @@ makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <Navbar />
+    <Login />
   </React.StrictMode>,
   document.getElementById("root")
 );
