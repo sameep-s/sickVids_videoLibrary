@@ -63,9 +63,7 @@ const Signup = () => {
                             </label>
                         </div>
                         <div className="form-utility-2 mt-2">
-                            By creating an account, you agree to our
-                            <a href="" className="form-link"> Privary Policy</a> and
-                            <a href="" className="form-link"> Terms of service.</a>
+                            By creating an account, you agree to our <a href="" className="form-link">Privary Policy</a> and <a href="" className="form-link">Terms of service</a>
                         </div>
                     </div>
 
@@ -74,8 +72,7 @@ const Signup = () => {
                     </div>
 
                     <div className="form-end form-utility mt-1">
-                        Already have a Account?
-                        <a className="form-link"> Log in.</a>
+                        Already have a Account? <a className="form-link">Log in</a>
                     </div>
                 </form>
             </main>
