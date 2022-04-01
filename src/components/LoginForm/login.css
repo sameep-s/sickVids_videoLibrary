@@ -85,10 +85,16 @@
   text-align: center;
 }
 
-.form-button button:hover {
+.form-button button{
   background-color: red;
   color: white;
   border: transparent;
+}
+
+.form-button button:hover {
+  background-color: white;
+  color: red;
+  border: .1rem solid red;
 }
 
 /* --------------------------------media queries */
