@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 // import App from "./App";
 
-import { Signup } from "./components/index";
+import { LandingPage } from "./pages";
 
 import { makeServer } from "./server";
 
@@ -12,7 +12,7 @@ makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <Signup />
+    <LandingPage />
   </React.StrictMode>,
   document.getElementById("root")
 );
