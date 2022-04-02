@@ -1,0 +1,26 @@
+
+.card__category{
+    width: 30rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.card__category img{
+    width: 100%;
+    aspect-ratio: 3/2;
+    object-fit: fill;
+    filter: brightness(40%);
+    border-radius: 1rem;
+    transition: 360ms;
+}
+
+.category__card__text{
+    font-size: 4rem;
+    font-family: var(--font-heading);
+    font-weight: bolder;
+    color: white;
+}
+
+.card__category img:hover{
+    filter: brightness(60%);
+}

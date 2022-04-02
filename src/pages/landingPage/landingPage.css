@@ -1,0 +1,22 @@
+
+.inner_main_landingPage{
+    width: 70%;
+    border-radius: 2rem;
+    border: .1rem solid var(--dark);
+}
+
+.landingPage__dialogue{
+    font-size: 10rem;
+    font-family: var(--font-heading);
+    font-weight: bolder;
+}
+
+.landingPage__category__heading{
+    font-family: var(--font-heading);
+    font-size: 6rem;
+    font-weight: bolder;
+}
+
+.categories__card__div{
+    flex-wrap: wrap;
+}
