@@ -16,4 +16,5 @@ const CardCategory = ({ image, categoryName }) => {
     );
 }
 
+
 export default CardCategory;

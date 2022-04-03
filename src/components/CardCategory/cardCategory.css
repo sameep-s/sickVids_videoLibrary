@@ -3,13 +3,18 @@
     width: 30rem;
     border-radius: 1rem;
     cursor: pointer;
+    filter: brightness(80%);
+    transition: 360ms;
+}
+
+.card__category:hover{
+    filter: brightness(100%);
 }
 
 .card__category img{
     width: 100%;
     aspect-ratio: 3/2;
     object-fit: fill;
-    filter: brightness(40%);
     border-radius: 1rem;
     transition: 360ms;
 }
@@ -21,6 +26,3 @@
     color: white;
 }
 
-.card__category img:hover{
-    filter: brightness(60%);
-}
