@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './landingPage.css';
-import { Navbar, CardCategory } from '../../components';
+import { Navbar, CardCategory, Footer } from '../../components';
 import axios from 'axios';
-import { categories } from '../../backend/db/categories';
 
 const LandingPage = () => {
 
@@ -14,8 +13,8 @@ const LandingPage = () => {
             try {
                 const categoryData = await axios.get('/api/categories');
                 setCategoryData(categoryData.data.categories);
-                console.log(categoryData.data.categories);
             }
+
             catch (error) {
                 console.log(error);
             }
@@ -36,9 +35,12 @@ const LandingPage = () => {
                     <div className="landingPage__category__heading ">Categories</div>
 
                     <div className="categories__card__div flex mt-4 jc-center">
-                        {categoryData.map((categories) => <CardCategory key={categories._id} {...categories} />)}
+                        {categoryData?.map((categories) => <CardCategory key={categories._id} {...categories} />)}
                     </div>
                 </div>
+
+                {/* footer Component */}
+                <Footer />
             </div>
         </>
 

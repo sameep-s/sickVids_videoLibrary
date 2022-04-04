@@ -66,10 +66,11 @@
 .btn-nav {
   display: inline-flex;
   width: 10rem;
-  font-weight: bold;
-  padding: 0.5rem;
+  font-weight: bolder;
   font-size: 2rem;
-  border: 0.1rem solid white;
+  font-family: var(--font-heading);
+  border: .1rem solid white;
+  padding: 0.5rem;
   background-color: var(--night);
   color: white;
   border-radius: 0.2rem;
