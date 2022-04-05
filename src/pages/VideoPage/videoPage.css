@@ -1,0 +1,82 @@
+/* Video ELement */
+
+.wrapper__videoPage{
+    width: 90%;
+}
+
+.videoFrame{
+position: relative;
+width: 100%;
+padding-bottom: 56.25%;
+height: 0;
+}
+
+.videoFrame iframe{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+.container__video{
+    width:70%;
+    height: 100vh;
+}
+
+.container__suggestionVideos{
+    background-color: var(--primary-shade);
+    height: 100vh;
+    width: 40rem;
+    margin-left: auto;
+}
+
+.videoFrame__title{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.videoFrame__info{
+    border-bottom: .1rem solid var(--dark);
+}
+
+.videoFrame__info__inner1{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+.videoFrame__info__inner2{
+    margin-left: auto;
+}
+
+.videoFrame__info__inner2 button{
+    padding: 1rem 1rem;
+    background-color: white;
+    cursor: pointer;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: .5rem;
+    transition: 360ms;
+}
+
+.videoFrame__info__inner2 button:hover{
+    background-color: var(--dark-shade);
+}
+
+.videoLiked{
+    color: blue;
+}
+
+.videoDisliked{
+    color: red;
+}
+
+.videoFrame_desc{
+    font-size: 2rem;
+    border-bottom: .1rem solid var(--dark);
+}
+
+/* suggested videos. */

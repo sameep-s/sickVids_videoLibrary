@@ -25,11 +25,6 @@ const Navbar = () => {
                         />
                     </div>
                     <div className="navbar--container-end flex a-item-center">
-                        {/* <div className="nav-icon-container">
-                            <div className="nav-heart-icon pos-rel">
-                                <FontAwesomeIcon icon={faShoppingCart} className="nav__icons" />
-                            </div>
-                        </div> */}
 
                         <div className="nav-icon-container">
                             <div className="nav-cart-icon">

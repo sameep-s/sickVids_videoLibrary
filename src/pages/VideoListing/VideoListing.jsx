@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './videolisting.css';
 
-import { Navbar, Sidebar } from '../../components';
+import { Navbar, Sidebar, CardVideoList } from '../../components';
+import axios from 'axios';
 
 
 
 const VideoListing = () => {
+
+    const [videoData, setVideoData] = useState([]);
+
+    useEffect(() => {
+
+        (async () => {
+            try {
+                const dataResponse = await axios.get('/api/videos');
+                setVideoData(dataResponse.data.videos);
+            }
+            catch (e) {
+                console.log(e);
+            }
+
+        })();
+
+
+    }, []);
+
+
     return (
         <>
             <Navbar />
@@ -13,10 +34,8 @@ const VideoListing = () => {
 
                 <Sidebar />
 
-                <main className='container__main_videoArea p-4' >
-                    <div className="">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum at, quod in harum excepturi, officiis quasi accusamus eveniet blanditiis officia consequatur dolores! Beatae tempore laborum autem perferendis quaerat neque eligendi.
-                    </div>
+                <main className='container__main_videoArea flex p-4' >
+                    {videoData.map((video) => <CardVideoList key={video._id} {...video} />)}
                 </main>
             </div >
 

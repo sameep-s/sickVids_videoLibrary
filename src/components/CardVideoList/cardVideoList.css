@@ -1,0 +1,50 @@
+
+.container__card__videoListing{
+    max-width: 30rem;
+    cursor: pointer;
+    transition: 360ms;
+    border: .1rem solid transparent;
+
+}
+
+.container__card__videoListing > img{
+    width: 100%;
+    transition: 500ms;
+}
+
+.container__card__videoListing > img:hover{
+    filter: brightness(85%);
+}
+
+.card__videoListing_title{
+    flex-wrap: wrap;
+    font-family: var(--font-heading);
+    font-weight: bolder;
+    font-size: 1.5rem;
+    height: 3rem;
+}
+
+.card__videoListing__info span{
+
+    font-size: 1.8rem;
+    margin-right: .5rem;
+}
+
+.videoList__card__btn{
+    display: block;
+    margin-top: .8rem;
+    width: 100%;
+    padding: 1rem .5rem;
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    background-color: white;
+    color: red;
+    border: 1px solid var(--danger-shade);
+    transition: 360ms;
+    cursor: pointer;
+}
+
+.videoList__card__btn:hover{
+    background-color: red;
+    color: white;
+}
