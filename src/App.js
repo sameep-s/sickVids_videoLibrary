@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { LandingPage } from './pages';
+import { LandingPage, VideoListing } from './pages';
 
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
 
       <Routes>
         <Route path='/' element={<LandingPage />} />
+        <Route path="/videoListing" element={<VideoListing />} />
       </Routes>
 
 

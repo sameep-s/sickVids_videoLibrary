@@ -1,0 +1,35 @@
+/* sidebar */
+
+.container__main__sidebar{
+    min-width: 30rem;
+    border-right: .1rem solid var(--dark);
+    height: calc(100vh - 8rem); 
+    top: 8rem;
+    overflow-y: auto;
+}
+
+.container__inner_siderbar{
+    height: 100%;
+}
+
+.container__inner_siderbar ul li{
+    font-size: 2.1rem;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    color: red;
+    color: #1d1d1f;
+    transition: 360ms;
+}
+
+.container__inner_siderbar ul li:hover{
+    background-color: rgba(255, 0, 0, 0.05);
+}
+
+
+.container__inner_siderbar .actv{
+    font-weight: bolder;
+    background-color: rgba(255, 0, 0, 0.05);
+    color: red;
+}
+
+

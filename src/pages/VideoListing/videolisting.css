@@ -1,0 +1,9 @@
+/* videoArea */
+
+.container__main_videoArea{
+    /* background-color: var(--dark); */
+    width: 100%;
+    overflow-y: scroll;
+    /* margin-left: 30rem; */
+    font-size: 9rem;
+}

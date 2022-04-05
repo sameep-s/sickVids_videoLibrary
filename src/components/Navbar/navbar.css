@@ -45,6 +45,7 @@
 
 .navbar--container-end {
   font-size: 0.5rem;
+  align-items: center;
   justify-content: flex-end;
   width: 30%;
 }
@@ -93,13 +94,15 @@
 
 .nav-icon-container > div {
   font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  height: 8rem;
+  padding: 0 1rem;
+  border-bottom: .4rem solid white;
   margin-right: 2rem;
-  transition: 360ms;
+  cursor: pointer;
 }
 
-.nav-icon-container > div:hover {
-  color: var(--dark);
-}
 
 .btn-search-nav > div {
   color: var(--night);

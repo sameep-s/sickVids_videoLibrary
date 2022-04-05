@@ -1,7 +1,7 @@
 import React from 'react';
 import "./navbar.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faShoppingCart, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faHome } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
 
@@ -25,19 +25,16 @@ const Navbar = () => {
                         />
                     </div>
                     <div className="navbar--container-end flex a-item-center">
-                        <div className="nav-icon-container">
+                        {/* <div className="nav-icon-container">
                             <div className="nav-heart-icon pos-rel">
                                 <FontAwesomeIcon icon={faShoppingCart} className="nav__icons" />
-                                <span className="badge ">6</span>
-
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="nav-icon-container">
                             <div className="nav-cart-icon">
 
-                                <FontAwesomeIcon icon={faHeart} className="nav__icons" ></FontAwesomeIcon>
-                                <div className="fa-solid fa-cart-shopping" id="cart-icon"></div>
+                                <FontAwesomeIcon icon={faHome} className="nav__icons" ></FontAwesomeIcon>
                             </div>
                         </div>
 
