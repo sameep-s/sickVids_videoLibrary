@@ -4,7 +4,9 @@ import {
   LandingPage,
   VideoListing,
   VideoPage,
-  WatchLater
+  WatchLater,
+  PlaylistPage,
+
 } from './pages';
 
 
@@ -18,6 +20,7 @@ function App() {
         <Route path="/videoListing" element={<VideoListing />} />
         <Route path="/videoPage" element={<VideoPage />} />
         <Route path="/watchLater" element={<WatchLater />} />
+        <Route path="/playlists" element={<PlaylistPage />} />
       </Routes>
 
 

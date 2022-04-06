@@ -2,12 +2,14 @@ import LandingPage from "./landingPage/LandingPage";
 import VideoListing from "./VideoListing/VideoListing";
 import VideoPage from "./VideoPage/VideoPage";
 import WatchLater from "./WatchlaterPage/WatchLater";
+import PlaylistPage from "./PlaylistPage/PlaylistPage";
 
 
 export {
     LandingPage,
     VideoListing,
     VideoPage,
-    WatchLater
+    WatchLater,
+    PlaylistPage,
 
 };

@@ -1,0 +1,88 @@
+
+.container__videoList__videos{
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.wrapper__videoList{
+    width: 90%;
+}
+
+.container__videoList_heading{
+    border-bottom: .1rem solid var(--darker);
+    padding: 1rem 0;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: var(--font-heading);
+}
+
+/* playlist area */
+.container__playlists{
+    width:100%;
+    flex-wrap: wrap;
+}
+
+.add_playlist__form {
+    width: 100%;
+
+}
+
+form input{
+    width: 50rem;
+    font-size: 2rem;
+    border: none;
+    padding: .4rem;
+    transition: 360ms;
+    border: transparent;
+    outline: .1rem solid var(--darker);
+}
+
+form input:focus{
+    outline: .1rem solid var(--primary);
+}
+
+
+form button{
+    cursor: pointer;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: var(--font-heading);
+    border-radius: .5rem;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: .5rem 1rem;
+}
+
+/* playlist item */
+
+.item__playlist{
+    /* background-color: var(--danger-shade); */
+    padding: 2rem;
+    width: 30rem;
+    cursor: pointer;
+    border: .1rem solid var(--darker);
+    border-radius: 6px;
+    transition: 360ms;
+}
+
+.item__playlist:hover{
+    background-color: var(--dark-shade);
+}
+.playlistName{
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: var(--font-heading);
+}
+
+.item__playlist .playlist__deleteIcon{
+    margin-left: auto;
+    font-size: 2rem;
+    color: var(--darker);
+    transition: 360ms;
+
+}
+
+.item__playlist .playlist__deleteIcon:hover{
+    color: red;
+}
