@@ -8,6 +8,7 @@ import Sidebar from './Sidebar/Sidebar';
 import CardVideoList from './CardVideoList/CardVideoList';
 import SuggestionVideo from './SuggestionVideos/SuggestionVideo';
 import VideoComponent from './VideoComponent/VideoComponent';
+import VideoListItem from './VideoListItem/VideoListItem';
 
 export {
     Navbar,
@@ -19,5 +20,6 @@ export {
     Sidebar,
     CardVideoList,
     SuggestionVideo,
-    VideoComponent
+    VideoComponent,
+    VideoListItem
 };

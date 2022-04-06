@@ -1,0 +1,41 @@
+video list */
+.card__video__listItem{
+    width: 100%;
+    transition: 200ms;
+    cursor: pointer;
+}
+
+.card__video__listItem:hover{
+    background-color: var(--dark-shade);
+}
+
+.card__video__listItem .image__videoListItem{
+    width: 20rem;
+}
+
+.card__video__listItem .image__videoListItem img{
+    width: 100%;
+}
+
+.video__listItem_title{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.container__listItem__button{
+    margin-left: auto;
+}
+
+.container__listItem__button button{
+    margin: 0 1rem;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 3rem;
+    border: none;
+    color: var(--darker);
+    transition: 360ms;
+}
+
+.container__listItem__button button:hover{
+    color: red;
+}

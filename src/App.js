@@ -1,6 +1,11 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { LandingPage, VideoListing, VideoPage } from './pages';
+import {
+  LandingPage,
+  VideoListing,
+  VideoPage,
+  WatchLater
+} from './pages';
 
 
 function App() {
@@ -12,6 +17,7 @@ function App() {
         <Route path='/' element={<LandingPage />} />
         <Route path="/videoListing" element={<VideoListing />} />
         <Route path="/videoPage" element={<VideoPage />} />
+        <Route path="/watchLater" element={<WatchLater />} />
       </Routes>
 
 
