@@ -6,8 +6,8 @@ import Footer from './Footer/Footer';
 import LinkContainer from './footerLinkContainer/LinkContainer';
 import Sidebar from './Sidebar/Sidebar';
 import CardVideoList from './CardVideoList/CardVideoList';
-
-
+import SuggestionVideo from './SuggestionVideos/SuggestionVideo';
+import VideoComponent from './VideoComponent/VideoComponent';
 
 export {
     Navbar,
@@ -17,5 +17,7 @@ export {
     Footer,
     LinkContainer,
     Sidebar,
-    CardVideoList
+    CardVideoList,
+    SuggestionVideo,
+    VideoComponent
 };

@@ -1,0 +1,33 @@
+
+/* suggested videos. */
+
+.container__suggestionVideos{
+    width: 40rem;
+    margin-left: auto;
+}
+
+.container__suggestionVideo{
+    cursor: pointer;
+    width: 100%;
+}
+
+.container__image__suggestionVideo{
+    width: 20rem;
+}
+
+
+.container__image__suggestionVideo img{
+    width: 16rem;
+}
+
+.suggestionVideo__title{
+    height: 5rem;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.suggestionVideo__info div{
+    margin-top: .2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
