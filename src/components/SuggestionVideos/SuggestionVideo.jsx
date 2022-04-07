@@ -1,33 +1,36 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "./suggestionVideo.css";
 
-const SuggestionVideo = () => {
+const SuggestionVideo = (video) => {
+
+    const { _id, title, thumbnail, views, channelName } = video;
+
     return (
         <>
-            <div className="container__suggestionVideos">
-
+            <Link to={`/videoPage/${_id}`}>
                 <div className="container__suggestionVideo flex mb-2">
                     <div className="container__image__suggestionVideo">
-                        <img src="https://i.ytimg.com/vi/hPJ762sAptY/maxresdefault.jpg" alt="suggestionVideoThumbnail" />
+                        <img src={thumbnail} alt="suggestionVideoThumbnail" />
                     </div>
 
                     <div className="suggestionVideo__content">
                         <div className="suggestionVideo__title flex ml-1">
-                            THE BEST 'SUHAGRAAT' VLOG EVER | LAKSHAY CHAUDHARY
+                            {title}
                         </div>
 
                         <div className="suggestionVideo__info pl-1">
                             <div className="suggestionVideo__info__creator ">
-                                Lakshay Choudhary
+                                {channelName}
                             </div>
                             <div className="suggestionVideo__info__views">
-                                666 views
+                                {views} views
                             </div>
                         </div>
                     </div>
 
                 </div>
-            </div>
+            </Link>
         </>
     )
 }

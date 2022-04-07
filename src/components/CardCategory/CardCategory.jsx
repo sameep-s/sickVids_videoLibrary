@@ -7,7 +7,7 @@ import './cardCategory.css';
 const CardCategory = ({ image, categoryName }) => {
     return (
         <>
-            <Link to="/videoListing">
+            <Link to={"/videoListing"}>
                 <div className="card__category flex jc-center m-1 a-item-center pos-rel">
                     <img
                         src={image}

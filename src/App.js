@@ -7,7 +7,7 @@ import {
   WatchLater,
   PlaylistPage,
   LikedVIdeos,
-  History
+  History,
 
 } from './pages';
 
@@ -25,6 +25,7 @@ function App() {
         <Route path="/playlists" element={<PlaylistPage />} />
         <Route path="/history" element={<History />} />
         <Route path="/likedVideos" element={<LikedVIdeos />} />
+        <Route path="/videoPage/:videoId" element={<VideoPage />} />
       </Routes>
 
 

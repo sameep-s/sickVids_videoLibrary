@@ -4,6 +4,8 @@
 .container__suggestionVideos{
     width: 40rem;
     margin-left: auto;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .container__suggestionVideo{
