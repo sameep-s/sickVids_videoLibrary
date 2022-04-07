@@ -1,5 +1,9 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useEffect } from "react";
+import { DataReducer } from "../util-reducers/data-reducer";
+import axios from 'axios';
+
 import { v4 as uuid } from 'uuid';
+
 
 const deafultPlaylist = [
     {
@@ -171,13 +175,26 @@ const DataContext = createContext(defaultDataContextVal);
 
 const DataProvider = ({ children }) => {
 
-    function DataReducer(state_data, action) {
 
-        switch (action.type) {
-            case "DEFAULT":
-                return state_data;
-        }
-    }
+    useEffect(() => {
+
+        (async () => {
+            try {
+                const dataResponse = await axios.get('/api/videos');
+                const videos = dataResponse.data.videos;
+                console.log(videos);
+                dispatch_data({ type: "SET_VIDEOS", payload: { videos: videos } })
+
+            }
+            catch (e) {
+                console.log(e);
+            }
+
+        })();
+
+
+    }, []);
+
 
     const [state_data, dispatch_data] = useReducer(DataReducer, {
         videos: [],

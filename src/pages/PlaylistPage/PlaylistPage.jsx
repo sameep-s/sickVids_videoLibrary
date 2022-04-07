@@ -1,19 +1,35 @@
 import React, { useState } from 'react';
 import './playlistPage.css';
-import { Navbar, Sidebar } from '../../components';
+import { Navbar, Sidebar, PlaylistItem } from '../../components';
+
 import { useData } from '../../util-context';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+
 
 
 
 const PlaylistPage = () => {
 
+    const { state_data, dispatch_data } = useData();
+
     const [playlistName, setPlaylistName] = useState('');
 
+    function createPlaylistHandler() {
+        if (playlistName.length === 0) {
+            alert("Length of name Can't be zero")
+        }
+        if (state_data.playlists.filter((item) => item._playlistName === playlistName).length === 1) {
+            setPlaylistName("");
+            alert("playlist with this name already exists, try a different name");
+        }
+        else {
+            dispatch_data({ type: "CREATE_NEW_PLAYLIST", payload: { playlistName: playlistName } })
+            alert("playlist Created Sussessfully");
+            setPlaylistName("");
+        }
+    }
 
-    const { state_data } = useData();
-    console.log(state_data.playlists);
+    const playlists = [...state_data.playlists]
+    console.log(playlists);
 
     return (
         <>
@@ -28,29 +44,22 @@ const PlaylistPage = () => {
                             My Playlists
                         </div>
                         <div className="add_playlist__form flex mt-2">
-                            <form action="#" >
-                                <input
-                                    type="text"
-                                    name="playlistName"
-                                    placeholder='Add a name to create playlist.'
-                                    onChange={(e) => setPlaylistName(e.target.value)}
-                                    id="pname" className='mr-2'
-                                />
-                                <button onClick={'#'}>Add Playlist</button>
-                            </form>
+                            <input
+                                type="text"
+                                name="playlistName"
+                                autoComplete='off'
+                                placeholder='Add a name to create playlist.'
+                                value={playlistName}
+                                onChange={(e) => setPlaylistName(e.target.value)}
+                                id="pname" className='mr-2'
+                            />
+                            <button onClick={createPlaylistHandler}>Add Playlist</button>
                         </div>
+
                         <div className="container__playlists flex mt-2">
-
-                            <div className="item__playlist flex a-item-center">
-                                <div className="playlistName">
-                                    PlaylistName 1
-                                </div>
-                                <div className="playlist__deleteIcon">
-                                    <FontAwesomeIcon icon={faTrashCan} />
-                                </div>
-                            </div>
-
+                            {playlists.map((playlist) => <PlaylistItem key={playlist._playlistName} {...playlist} />)}
                         </div>
+
                     </div>
                 </div>
 

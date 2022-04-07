@@ -1,7 +1,17 @@
 import React from 'react';
+import { useData } from '../../util-context';
 import "./cardVideoList.css";
 
-const CardVideoList = ({ title, thumbnail, likes, category }) => {
+const CardVideoList = (video) => {
+
+    const { dispatch_data } = useData();
+
+    const { title, thumbnail, likes, category } = { ...video };
+
+    function addToPlaylistHandler() {
+        dispatch_data({ type: "DELETE_FROM_PLAYLIST", payload: { video: { ...video }, playlistName: "playlist1" } })
+    }
+
     return (
         <>
             <div className="container__card__videoListing m-1">
@@ -14,7 +24,7 @@ const CardVideoList = ({ title, thumbnail, likes, category }) => {
                     </div>
                     <div className="card__videoListing__buttonContainer ">
                         <button className='videoList__card__btn' >Add To Watch Later</button>
-                        <button className='videoList__card__btn'>Add To Playlist</button>
+                        <button className='videoList__card__btn' onClick={addToPlaylistHandler}>Add To Playlist</button>
                     </div>
                 </div>
             </div>

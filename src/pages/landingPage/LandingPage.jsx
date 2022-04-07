@@ -39,7 +39,6 @@ const LandingPage = () => {
                     </div>
                 </div>
 
-                {/* footer Component */}
                 <Footer />
             </div>
         </>
