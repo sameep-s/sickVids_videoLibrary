@@ -29,7 +29,6 @@ const PlaylistPage = () => {
     }
 
     const playlists = [...state_data.playlists]
-    console.log(playlists);
 
     return (
         <>

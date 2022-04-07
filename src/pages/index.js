@@ -5,7 +5,7 @@ import WatchLater from "./WatchlaterPage/WatchLater";
 import PlaylistPage from "./PlaylistPage/PlaylistPage";
 import LikedVIdeos from "./LikedVideos/LikedVIdeos";
 import History from "./History/History";
-
+import PlaylistVideo from "./PlaylistVideos/PlaylistVideo";
 
 export {
     LandingPage,
@@ -14,6 +14,7 @@ export {
     WatchLater,
     PlaylistPage,
     LikedVIdeos,
-    History
+    History,
+    PlaylistVideo
 
 };

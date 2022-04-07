@@ -11,17 +11,11 @@ const VideoPage = () => {
         return state_data.videos.find((video) => video._id === id);
     }
 
+    const { state_data } = useData();
     const { videoId } = useParams();
 
-    const { state_data } = useData();
     const videos = [...state_data.videos];
     const video = getVideoInfo(videoId);
-
-
-
-    console.log(state_data.videos);
-    console.log(video);
-
 
 
     return (
