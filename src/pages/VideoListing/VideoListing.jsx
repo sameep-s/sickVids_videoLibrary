@@ -11,7 +11,6 @@ const VideoListing = () => {
 
     const { state_data } = useData();
 
-    console.log(state_data.videos);
     const videoData = [...state_data.videos]
 
 

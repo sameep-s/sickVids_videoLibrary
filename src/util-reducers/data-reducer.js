@@ -1,10 +1,5 @@
 export function DataReducer(state_data, action) {
 
-    function videoIsPresent(video, playlistName) {
-        const playlist = state_data.playlists.find((i) => i._playlistName === playlistName);
-
-        return playlist.playlistVideos.filter((i) => i._id === video._id).length;
-    }
 
 
     switch (action.type) {
@@ -13,6 +8,30 @@ export function DataReducer(state_data, action) {
             return {
                 ...state_data, videos: [...action.payload.videos]
             }
+
+        case "ADD_TO_HISTORY":
+            {
+                return {
+                    ...state_data, history: [...state_data.history, { ...action.payload.video, timeStamp: Date.now() }]
+                }
+            }
+
+        case "REMOVE_FROM_HISTORY": {
+            console.log(state_data.history);
+            return {
+                ...state_data, history: state_data.history.filter((item) => item.timeStamp !== action.payload.video.timeStamp)
+            }
+        }
+
+        case "DELETE_HISTORY":
+            {
+                alert("History Deleted");
+
+                return {
+                    ...state_data, history: []
+                }
+            }
+
 
         case "CREATE_NEW_PLAYLIST":
             return {
