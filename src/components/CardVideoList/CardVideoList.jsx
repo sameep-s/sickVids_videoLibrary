@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useData } from '../../util-context';
 import "./cardVideoList.css";
+import { presentInWatchLater } from "../../util-functions/presentInWatchLater";
 
 const CardVideoList = (video) => {
 
-    const { dispatch_data } = useData();
+    const { state_data, dispatch_data } = useData();
+    const [isInWatchLater, setIsInWatchLater] = useState(false)
 
     const { _id, title, thumbnail, likes, category } = { ...video };
 
@@ -16,6 +18,13 @@ const CardVideoList = (video) => {
     function addToHistoryHandler() {
         dispatch_data({ type: "ADD_TO_HISTORY", payload: { video: video } })
     }
+
+    function addToWatchLaterHandler() {
+        dispatch_data({ type: "ADD_TO_WATCHLATER", payload: { video: video } })
+
+    }
+
+
 
     return (
         <>
@@ -31,7 +40,13 @@ const CardVideoList = (video) => {
                     </div>
 
                     <div className="card__videoListing__buttonContainer ">
-                        <button className='videoList__card__btn' onClick={addToHistoryHandler} >Add To Watch Later</button>
+
+                        <button
+                            className='videoList__card__btn'
+                            onClick={addToWatchLaterHandler}>
+                            {presentInWatchLater(state_data.watchLater, video) ? "Remove From Watch Later" : "Add To Watch Later"}
+                        </button>
+
                         <button className='videoList__card__btn' onClick={addToPlaylistHandler}>Add To Playlist</button>
                     </div>
                 </div>

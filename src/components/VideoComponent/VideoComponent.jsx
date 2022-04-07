@@ -1,13 +1,28 @@
 import React from 'react';
 import './videoComponent.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faThumbsUp, faThumbsDown, faClock, faListSquares } from '@fortawesome/free-solid-svg-icons';
+import { faThumbsUp, faThumbsDown, faClock, faListSquares, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { useData } from '../../util-context';
+import { presentInWatchLater } from "../../util-functions/presentInWatchLater";
+
 
 const VideoComponent = (video) => {
+    const { state_data, dispatch_data } = useData();
 
+
+    console.log(`videoComponent`, state_data.watchLater);
     const { _id, title, source, views, dislike, liked, description, likes } = video;
 
+
+    function addToWatchLaterHandler() {
+        console.log("watchWorking");
+        dispatch_data({ type: "ADD_TO_WATCHLATER", payload: { video: video } })
+
+    }
+
     return (
+
+
         <>
             <div className="container__video mb-2 mr-4">
 
@@ -26,7 +41,7 @@ const VideoComponent = (video) => {
                             <button><FontAwesomeIcon icon={faThumbsUp} className={false ? "videoLiked" : ""} /> 666</button>
                             <button><FontAwesomeIcon icon={faThumbsDown} className={false ? "videoDisliked" : ""} /> DISLIKE</button>
                             <button><FontAwesomeIcon icon={faClock} /> Add To Playlist</button>
-                            <button><FontAwesomeIcon icon={faListSquares} /> Watch Later</button>
+                            <button onClick={addToWatchLaterHandler}> <FontAwesomeIcon icon={presentInWatchLater(state_data.watchLater, video) ? faCheck : faListSquares} className=" pr-1" />Watch Later</button>
                         </div>
                     </div>
 

@@ -10,7 +10,6 @@ const VideoListItem = (video) => {
 
     const { dispatch_data } = useData();
 
-    console.log(Date.now());
 
 
     return (
