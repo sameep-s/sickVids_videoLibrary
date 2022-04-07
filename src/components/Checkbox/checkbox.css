@@ -1,0 +1,12 @@
+.wrapper__checkbox input{
+    border: none;
+    outline: none;
+    margin-right: 1em;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+}
+
+.wrapper__checkbox label{
+    font-weight: bolder;
+}

@@ -10,6 +10,7 @@ import SuggestionVideo from './SuggestionVideos/SuggestionVideo';
 import VideoComponent from './VideoComponent/VideoComponent';
 import VideoListItem from './VideoListItem/VideoListItem';
 import PlaylistItem from './PlaylistItem/PlaylistItem';
+import Checkbox from './Checkbox/Checkbox';
 
 export {
     Navbar,
@@ -23,5 +24,6 @@ export {
     SuggestionVideo,
     VideoComponent,
     VideoListItem,
-    PlaylistItem
+    PlaylistItem,
+    Checkbox
 };

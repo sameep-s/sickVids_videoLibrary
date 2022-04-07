@@ -5,7 +5,7 @@ import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 const VideoListItem = (video) => {
-    const { _id, thumbnail, title, } = video
+    const { _id, thumbnail, title, } = { ...video }
 
     return (
         <>
@@ -15,8 +15,8 @@ const VideoListItem = (video) => {
                         <img src={thumbnail} alt="imageListCard" />
                     </div>
                 </Link>
-                <Link to={`/videoPage/${_id}`}>
 
+                <Link to={`/videoPage/${_id}`}>
                     <div className="video__listItem_title pl-2">
                         {title}
                     </div>
