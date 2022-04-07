@@ -12,12 +12,10 @@
     height: 100%;
 }
 
-.container__inner_siderbar ul li{
+li{
     font-size: 2.1rem;
     cursor: pointer;
     font-family: var(--font-heading);
-    color: red;
-    color: #1d1d1f;
     transition: 360ms;
 }
 

@@ -1,42 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './videolisting.css';
 
 import { Navbar, Sidebar, CardVideoList } from '../../components';
-import axios from 'axios';
+import { useData } from '../../util-context';
 
 
 
 const VideoListing = () => {
 
-    const [videoData, setVideoData] = useState([]);
 
-    useEffect(() => {
+    const { state_data } = useData();
 
-        (async () => {
-            try {
-                const dataResponse = await axios.get('/api/videos');
-                setVideoData(dataResponse.data.videos);
-            }
-            catch (e) {
-                console.log(e);
-            }
-
-        })();
-
-
-    }, []);
+    console.log(state_data.videos);
+    const videoData = [...state_data.videos]
 
 
     return (
         <>
+
             <Navbar />
             <div className="container__main__videoListing  flex">
 
                 <Sidebar />
 
-                <main className='container__main_videoArea flex p-4' >
-                    {videoData.map((video) => <CardVideoList key={video._id} {...video} />)}
-                </main>
+                {videoData?.length === 0 ? <h1 className='m-4'>Loading...</h1>
+                    :
+
+                    <main className='container__main_videoArea flex p-4' >
+                        {videoData.map((video) => <CardVideoList key={video._id} {...video} />)}
+                    </main>
+
+                }
+
+
             </div >
 
 

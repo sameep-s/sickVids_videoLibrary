@@ -27,8 +27,8 @@
 
 }
 
-form input{
-    width: 50rem;
+input{
+    width: 60%;
     font-size: 2rem;
     border: none;
     padding: .4rem;
@@ -37,12 +37,12 @@ form input{
     outline: .1rem solid var(--darker);
 }
 
-form input:focus{
+input:focus{
     outline: .1rem solid var(--primary);
 }
 
 
-form button{
+button{
     cursor: pointer;
     font-size: 2em;
     font-weight: bold;
@@ -52,37 +52,4 @@ form button{
     color: white;
     border: none;
     padding: .5rem 1rem;
-}
-
-/* playlist item */
-
-.item__playlist{
-    /* background-color: var(--danger-shade); */
-    padding: 2rem;
-    width: 30rem;
-    cursor: pointer;
-    border: .1rem solid var(--darker);
-    border-radius: 6px;
-    transition: 360ms;
-}
-
-.item__playlist:hover{
-    background-color: var(--dark-shade);
-}
-.playlistName{
-    font-size: 2rem;
-    font-weight: bold;
-    font-family: var(--font-heading);
-}
-
-.item__playlist .playlist__deleteIcon{
-    margin-left: auto;
-    font-size: 2rem;
-    color: var(--darker);
-    transition: 360ms;
-
-}
-
-.item__playlist .playlist__deleteIcon:hover{
-    color: red;
 }
