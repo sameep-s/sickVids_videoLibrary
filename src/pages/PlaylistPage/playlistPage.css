@@ -22,12 +22,12 @@
     flex-wrap: wrap;
 }
 
-.add_playlist__form {
+.add_playlist__form form {
     width: 100%;
 
 }
 
-input{
+form input{
     width: 60%;
     font-size: 2rem;
     border: none;
@@ -37,7 +37,7 @@ input{
     outline: .1rem solid var(--darker);
 }
 
-input:focus{
+form input:focus{
     outline: .1rem solid var(--primary);
 }
 

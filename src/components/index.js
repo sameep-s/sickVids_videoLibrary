@@ -10,6 +10,7 @@ import SuggestionVideo from './SuggestionVideos/SuggestionVideo';
 import VideoComponent from './VideoComponent/VideoComponent';
 import VideoListItem from './VideoListItem/VideoListItem';
 import PlaylistItem from './PlaylistItem/PlaylistItem';
+import ModalPlaylist from './ModalPlaylist/ModalPlaylist';
 import Checkbox from './Checkbox/Checkbox';
 
 export {
@@ -22,6 +23,7 @@ export {
     Sidebar,
     CardVideoList,
     SuggestionVideo,
+    ModalPlaylist,
     VideoComponent,
     VideoListItem,
     PlaylistItem,

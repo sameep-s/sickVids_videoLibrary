@@ -3,7 +3,7 @@ export function DataReducer(state_data, action) {
     function videoIsPresent(video, playlistName) {
         const playlist = state_data.playlists.find((i) => i._playlistName === playlistName);
 
-        return playlist.playlistVideos.filter((i) => i._id === video._id).length;
+        return (playlist.playlistVideos.filter((i) => i._id === video._id).length) > 0;
     }
 
 
@@ -20,30 +20,40 @@ export function DataReducer(state_data, action) {
             }
 
 
-
         case "DELETE_PLAYLIST":
             return { ...state_data, playlists: [...state_data.playlists.filter((item) => item._playlistName !== action.payload.playlistName)] }
 
 
         case "ADD_TO_PLAYLIST":
-
             {
-                alert(`added to playlist ${action.payload.playlistName}`)
-                if (videoIsPresent(action.payload.video, action.payload.playlistName))
-                    return { ...state_data }
+                if (videoIsPresent(action.payload.video, action.payload.playlistName)) {
+                    alert(`Removed from playlist ${action.payload.playlistName}`)
 
-                return {
-                    ...state_data,
-                    playlists: state_data.playlists.map((playlist) =>
-                        playlist._playlistName === action.payload.playlistName
-                            ? { ...playlist, playlistVideos: playlist.playlistVideos.concat(action.payload.video) } : playlist
-                    )
+                    return {
+                        ...state_data,
+                        playlists: state_data.playlists.map((playlist) =>
+                            playlist._playlistName === action.payload.playlistName
+                                ? {
+                                    ...playlist, playlistVideos: playlist.playlistVideos.filter((i) => i._id !== action.payload.video._id)
+                                } : playlist
+                        )
+                    }
                 }
+                else {
+                    alert(`added to playlist ${action.payload.playlistName}`)
 
+                    return {
+                        ...state_data,
+                        playlists: state_data.playlists.map((playlist) =>
+                            playlist._playlistName === action.payload.playlistName
+                                ? { ...playlist, playlistVideos: playlist.playlistVideos.concat(action.payload.video) } : playlist
+                        )
+                    }
+                }
             }
 
-        case "DELETE_FROM_PLAYLIST":
 
+        case "DELETE_FROM_PLAYLIST":
             return {
                 ...state_data,
                 playlists: state_data.playlists.map((playlist) =>
@@ -54,7 +64,22 @@ export function DataReducer(state_data, action) {
                 )
             }
 
-        case "DEFAULT":
+        case "CREATE_AND_ADD_TO_PLAYLIST": {
+            console.log(`this shit is working`);
+            return {
+
+                ...state_data,
+                playlists: [...state_data.playlists, { _playlistName: action.payload.playlistName, playlistVideos: [] }],
+                playlists: state_data.playlists.map((playlist) =>
+                    playlist._playlistName === action.payload.playlistName
+                        ? {
+                            ...playlist, playlistVideos: playlist.playlistVideos.filter((i) => i._id !== action.payload.video._id)
+                        } : playlist
+                )
+            }
+        }
+
+        default:
             return { ...state_data };
     }
 }

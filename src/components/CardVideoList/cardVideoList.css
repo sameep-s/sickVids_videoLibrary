@@ -4,10 +4,10 @@
     cursor: pointer;
     transition: 360ms;
     border: .1rem solid transparent;
-
 }
 
 img{
+    z-index: -3;
     width: 100%;
     transition: 500ms;
 }

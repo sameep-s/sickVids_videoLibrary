@@ -1,17 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import "./cardVideoList.css";
+import { ModalPlaylist } from "../";
 import { Link } from 'react-router-dom';
 import { useData } from '../../util-context';
-import "./cardVideoList.css";
 
 const CardVideoList = (video) => {
 
-    const { dispatch_data } = useData();
-
+    const [modalPlaylistOpen, setModalPlaylistOpen] = useState(false);
     const { _id, title, thumbnail, likes, category } = { ...video };
 
-    function addToPlaylistHandler() {
-        dispatch_data({ type: "DELETE_FROM_PLAYLIST", payload: { video: { ...video }, playlistName: "playlist1" } })
-    }
 
     return (
         <>
@@ -28,9 +25,11 @@ const CardVideoList = (video) => {
 
                     <div className="card__videoListing__buttonContainer ">
                         <button className='videoList__card__btn' >Add To Watch Later</button>
-                        <button className='videoList__card__btn' onClick={addToPlaylistHandler}>Add To Playlist</button>
+                        <button className='videoList__card__btn' onClick={() => setModalPlaylistOpen(true)}>Add To Playlist</button>
                     </div>
                 </div>
+
+                {modalPlaylistOpen && <ModalPlaylist {...{ video, setModalPlaylistOpen }} />}
             </div>
         </>
     )

@@ -16,7 +16,6 @@ const VideoPage = () => {
 
     const videos = [...state_data.videos];
     const video = getVideoInfo(videoId);
-    console.log(video);
 
 
     return (
