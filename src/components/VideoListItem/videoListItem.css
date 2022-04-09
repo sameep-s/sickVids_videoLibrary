@@ -1,5 +1,6 @@
 .card__video__listItem{
     width: 100%;
+    height: 9rem;
     transition: 200ms;
     cursor: pointer;
 }
@@ -8,11 +9,14 @@
     background-color: var(--dark-shade);
 }
 
-.image__videoListItem{
-    width: 20rem;
+.image__wrapper__videoListItem{
+    width: 16rem;
+    height: 9rem;
 }
 
- img{
+ .image__videoListItem{
+     object-fit: scale-down;
+     height: 9rem;
     width: 100%;
 }
 
@@ -29,7 +33,7 @@
     margin: 0 1rem;
     cursor: pointer;
     background-color: transparent;
-    font-size: 3rem;
+    font-size: 2.5rem;
     border: none;
     color: var(--darker);
     transition: 360ms;

@@ -1,8 +1,11 @@
 
 .inner_main_landingPage{
     width: 70%;
-    border-radius: 2rem;
     border: .1rem solid var(--dark);
+}
+
+.inner__categories__landingPage{
+    width: 70%;
 }
 
 .landingPage__dialogue{
@@ -14,6 +17,7 @@
 .landingPage__category__heading{
     font-family: var(--font-heading);
     font-size: 6rem;
+    border-bottom: .1rem solid var(--darker);
     font-weight: bolder;
 }
 

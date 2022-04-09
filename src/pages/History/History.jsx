@@ -23,7 +23,7 @@ const History = () => {
                 <div className="container__videoList__videos flex jc-center  p-2 ">
                     <div className="wrapper__videoList ">
                         <div className="container__videoList_heading flex a-item-center">
-                            History <span ><button onClick={() => dispatch_data({ type: "DELETE_HISTORY" })}>Clear History</button></span>
+                            History <span ><button className='button__delete__history' onClick={() => dispatch_data({ type: "DELETE_HISTORY" })}>Clear History</button></span>
                         </div>
 
                         {historyList?.length === 0 ?

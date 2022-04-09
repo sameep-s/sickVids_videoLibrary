@@ -10,16 +10,20 @@
 
 .container__suggestionVideo{
     cursor: pointer;
+    height: 10rem;
     width: 100%;
 }
 
 .container__image__suggestionVideo{
-    width: 20rem;
+    width: 16rem;
 }
 
 
 .container__image__suggestionVideo img{
+    object-fit:scale-down;
     width: 16rem;
+    height: 9rem;
+
 }
 
 .suggestionVideo__title{

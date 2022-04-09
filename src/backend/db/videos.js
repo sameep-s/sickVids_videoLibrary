@@ -69,7 +69,7 @@ export const videos = [
 
   {
     _id: uuid(),
-    title: "Sadhguru On What's Wrong With Today's Education System | Mystics Of India",
+    title: "What's Wrong With Today's Education",
     thumbnail: "https://i.ytimg.com/vi/SSTfPHBCVgo/maxresdefault.jpg",
     source: "https://www.youtube.com/embed/SSTfPHBCVgo",
     category: "education",
@@ -84,7 +84,7 @@ export const videos = [
 
   {
     _id: uuid(),
-    title: "Indian Education System Ka DARK Truth - FAILURE? - Ranveer Allahbadia ",
+    title: "Indian Education System Ka DARK Truth - FAILURE ",
     thumbnail: "https://i.ytimg.com/vi/7uLdaQPekmI/maxresdefault.jpg",
     source: "https://www.youtube.com/embed/7uLdaQPekmI",
     category: "education",
@@ -114,7 +114,7 @@ export const videos = [
 
   {
     _id: uuid(),
-    title: "Exploring World's Largest Abandoned Theme Park - Wonderland Eurasia",
+    title: "World's Largest Abandoned Theme Park -Eurasia",
     thumbnail: "https://i.ytimg.com/vi/wpst0Dbbk7U/maxresdefault.jpg",
     source: "https://www.youtube.com/embed/wpst0Dbbk7U",
     category: "adventure",
@@ -145,7 +145,7 @@ export const videos = [
 
   {
     _id: uuid(),
-    title: "Post Malone, Swae Lee - Sunflower (Spider-Man: Into the Spider-Verse)",
+    title: "Post Malone, Swae Lee - Sunflower ",
     thumbnail: "https://i.ytimg.com/vi/ApXoWvfEYVU/maxresdefault.jpg",
     source: "https://www.youtube.com/embed/ApXoWvfEYVU",
     category: "music",
@@ -190,7 +190,7 @@ export const videos = [
 
   {
     _id: uuid(),
-    title: "Satisfying Relaxing Video With Chilling Music to Fall Asleep",
+    title: "Satisfying Relaxing Video With Chilling Music ",
     thumbnail: "https://i.ytimg.com/vi/Wr6A78FDy_E/maxresdefault.jpg",
     source: "https://www.youtube.com/embed/Wr6A78FDy_E",
     category: "chill",
@@ -236,7 +236,7 @@ export const videos = [
 
   {
     _id: uuid(),
-    title: "'Secrets of Playboy': The docuseries exposing the dark side Hugh Hefner",
+    title: "'Secrets of Playboy': Exposing the dark side Hugh Hefner",
     thumbnail: "https://i.ytimg.com/vi/HFqss1wNcHU/maxresdefault.jpg",
     source: "https://www.youtube.com/embed/HFqss1wNcHU",
     category: "docuseries",
@@ -266,7 +266,7 @@ export const videos = [
 
   {
     _id: uuid(),
-    title: "Lady Gaga Details Pregnancy After Assault In Devastating Docuseries",
+    title: "Lady Gaga Details Pregnancy After Assault",
     thumbnail: "https://i.ytimg.com/vi/t7oMFsVDQtU/maxresdefault.jpg",
     source: "https://www.youtube.com/embed/t7oMFsVDQtU",
     category: "docuseries",
