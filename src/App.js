@@ -16,9 +16,7 @@ import {
 
 function App() {
   return (
-
     <BrowserRouter>
-
       <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route path="/videoListing" element={<VideoListing />} />
@@ -35,10 +33,7 @@ function App() {
 
 
       <div className="App" />
-
     </BrowserRouter>
-
-
   );
 }
 
