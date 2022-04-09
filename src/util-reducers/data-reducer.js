@@ -3,6 +3,8 @@ import { presentInWatchLater } from "../util-functions/presentInWatchLater";
 
 export function DataReducer(state_data, action) {
 
+    console.log();
+
     switch (action.type) {
 
         case "SET_VIDEOS":
@@ -55,8 +57,24 @@ export function DataReducer(state_data, action) {
                 }
             }
 
+        case "LIKE_VIDEO":
+            {
+                action.payload.video.liked = true;
+                return {
+                    ...state_data, liked: [...state_data.liked, action.payload.video]
+                }
+            }
+
+        case "DISLIKE_VIDEO":
+            {
+                return {
+                    ...state_data, liked: [...state_data.liked.filter((item) => item._id !== action.payload._id)]
+                }
+            }
+
 
         case "CREATE_NEW_PLAYLIST":
+
             return {
                 ...state_data, playlists: [...state_data.playlists, { _playlistName: action.payload.playlistName, playlistVideos: [] }]
             }
@@ -96,7 +114,7 @@ export function DataReducer(state_data, action) {
                 )
             }
 
-        case "DEFAULT":
+        default:
             return { ...state_data };
     }
 }

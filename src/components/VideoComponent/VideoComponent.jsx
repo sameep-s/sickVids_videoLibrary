@@ -10,7 +10,6 @@ const VideoComponent = (video) => {
     const { state_data, dispatch_data } = useData();
 
 
-    console.log(`videoComponent`, state_data.watchLater);
     const { _id, title, source, views, dislike, liked, description, likes } = video;
 
 
@@ -19,6 +18,11 @@ const VideoComponent = (video) => {
         dispatch_data({ type: "ADD_TO_WATCHLATER", payload: { video: video } })
 
     }
+
+    function addToLikeHandler() {
+        dispatch_data({ type: "LIKE_VIDEO", payload: { video: video } })
+    }
+
 
     return (
 
@@ -38,7 +42,7 @@ const VideoComponent = (video) => {
                             <span>{views} views </span>
                         </div>
                         <div className="videoFrame__info__inner2">
-                            <button><FontAwesomeIcon icon={faThumbsUp} className={false ? "videoLiked" : ""} /> 666</button>
+                            <button onClick={addToLikeHandler}><FontAwesomeIcon icon={faThumbsUp} className={false ? "videoLiked" : ""} /> 666</button>
                             <button><FontAwesomeIcon icon={faThumbsDown} className={false ? "videoDisliked" : ""} /> DISLIKE</button>
                             <button><FontAwesomeIcon icon={faClock} /> Add To Playlist</button>
                             <button onClick={addToWatchLaterHandler}> <FontAwesomeIcon icon={presentInWatchLater(state_data.watchLater, video) ? faCheck : faListSquares} className=" pr-1" />Watch Later</button>
