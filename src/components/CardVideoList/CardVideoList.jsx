@@ -17,7 +17,10 @@ const CardVideoList = (video) => {
         <>
             <div className="container__card__videoListing m-1">
                 <Link to={`/videoPage/${_id}`}>
-                    <img src={thumbnail} alt="thumbnail" />
+                    <img
+                        className='image__card__videoList'
+                        src={thumbnail}
+                        alt="thumbnail" />
                 </Link>
                 <div className="card__videoListing__content">
                     <div className="card__videoListing_title flex mt-1">{title}</div>
