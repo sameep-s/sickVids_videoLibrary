@@ -7,10 +7,11 @@ const ModalPlaylist = ({ video, setModalPlaylistOpen }) => {
 
     const [playlistName, setPlaylistName] = useState('');
     const { state_data, dispatch_data } = useData();
-
     const playlists = [...state_data.playlists];
 
-    function createPlaylistAndAddHandler() {
+    function createPlaylistAndAddHandler(e) {
+        e.preventDefault();
+
         if (playlistName.length === 0) {
             alert("Length of name Can't be zero")
             return;
@@ -42,7 +43,8 @@ const ModalPlaylist = ({ video, setModalPlaylistOpen }) => {
                     </div>
                     <div className="create__and__addToPlaylist__form flex a-item-center pl-1 pr-1">
 
-                        <form className='flex a-item-center ' onSubmit={(e) => e.preventDefault()}>
+                        <form className='flex a-item-center ' onSubmit={createPlaylistAndAddHandler}>
+
                             <input
                                 type="text"
                                 name='createAndAddToPlaylist'
@@ -54,7 +56,7 @@ const ModalPlaylist = ({ video, setModalPlaylistOpen }) => {
                                 className='input-txt'
                             />
 
-                            <button onClick={createPlaylistAndAddHandler} className='button__addToPLaylist btn btn-danger '>
+                            <button type='button' onClick={createPlaylistAndAddHandler} className='button__addToPLaylist btn btn-danger '>
                                 +
                             </button>
                         </form>
