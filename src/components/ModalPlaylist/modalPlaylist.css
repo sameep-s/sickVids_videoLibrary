@@ -14,9 +14,16 @@
     border: .1rem solid var(--dark);
 }
 
-.create__and__addToPlaylist__form .button__addToPLaylist{
-    margin-left: auto;
+.create__and__addToPlaylist__form .btn,
+.addToPlaylist__button .btn{
+   margin: .5rem 1rem; 
+   padding: .5rem 1rem;
+   margin-left: auto;
 }
+
+
+
+
 
 .container__addToPlaylist{
     border-radius: 1rem;

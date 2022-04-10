@@ -27,7 +27,7 @@
 
 }
 
-form input{
+.add_playlist__form form input{
     width: 60%;
     font-size: 2rem;
     border: none;
@@ -37,12 +37,12 @@ form input{
     outline: .1rem solid var(--darker);
 }
 
-form input:focus{
+.add_playlist__form form input:focus{
     outline: .1rem solid var(--primary);
 }
 
 
-button{
+.add_playlist__form form button{
     cursor: pointer;
     font-size: 2em;
     font-weight: bold;

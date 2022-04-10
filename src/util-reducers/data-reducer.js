@@ -65,17 +65,9 @@ export function DataReducer(state_data, action) {
             }
 
         case "CREATE_AND_ADD_TO_PLAYLIST": {
-            console.log(`this shit is working`);
             return {
-
                 ...state_data,
-                playlists: [...state_data.playlists, { _playlistName: action.payload.playlistName, playlistVideos: [] }],
-                playlists: state_data.playlists.map((playlist) =>
-                    playlist._playlistName === action.payload.playlistName
-                        ? {
-                            ...playlist, playlistVideos: playlist.playlistVideos.filter((i) => i._id !== action.payload.video._id)
-                        } : playlist
-                )
+                playlists: [...state_data.playlists, { _playlistName: action.payload.playlistName, playlistVideos: [action.payload.video] }]
             }
         }
 

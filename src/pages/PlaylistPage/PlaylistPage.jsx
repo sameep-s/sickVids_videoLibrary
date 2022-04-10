@@ -44,9 +44,9 @@ const PlaylistPage = () => {
                             My Playlists
                         </div>
                         <div className="add_playlist__form flex mt-2">
-                            <form onSubmit={(e) => {
+                            <form onSubmit={(e) =>
                                 e.preventDefault()
-                            }}>
+                            }>
                                 <input
                                     type="text"
                                     name="playlistName"

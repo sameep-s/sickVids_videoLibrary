@@ -9,20 +9,23 @@ const ModalPlaylist = ({ video, setModalPlaylistOpen }) => {
     const { state_data, dispatch_data } = useData();
 
     const playlists = [...state_data.playlists];
+    console.log(playlists);
 
     function createPlaylistAndAddHandler() {
         if (playlistName.length === 0) {
             alert("Length of name Can't be zero")
             return;
         }
-        if (state_data.playlists.filter((item) => item._playlistName === playlistName).length === 1) {
+        if (playlists.filter((item) => item._playlistName === playlistName).length === 1) {
             setPlaylistName("");
             alert("playlist with this name already exists, try a different name");
             return
         }
 
         dispatch_data({ type: "CREATE_AND_ADD_TO_PLAYLIST", payload: { playlistName: playlistName, video: video } })
+
         alert("playlist Created Sussessfully");
+        alert(`added to playlist ${playlistName}`);
         setPlaylistName("");
         setModalPlaylistOpen(false);
     }
@@ -38,26 +41,34 @@ const ModalPlaylist = ({ video, setModalPlaylistOpen }) => {
                     <div className="addToPlaylist__heading">
                         Add To Playlist
                     </div>
-                    <div className="create__and__addToPlaylist__form flex pl-1 pr-1">
-                        <form onSubmit={(e) => {
-                            e.preventDefault();
-                        }}>
+                    <div className="create__and__addToPlaylist__form flex a-item-center pl-1 pr-1">
+                        <form
+                            className='flex a-item-center '
+                            onSubmit={(e) => e.preventDefault()
+                            }>
+
                             <input
                                 type="text"
                                 id='createAndAddToPlaylist'
                                 name='createAndAddToPlaylist'
                                 onChange={(e) => setPlaylistName(e.target.value)}
                                 autoComplete='off'
+                                className='input-txt'
                                 placeholder='Add playlist Name then press enter'
                             />
-                            <button type='submit' onSubmit={createPlaylistAndAddHandler} className='button__addToPLaylist'>+</button>
+
+                            <button
+                                onClick={createPlaylistAndAddHandler}
+                                className='button__addToPLaylist btn btn-danger '>
+                                +
+                            </button>
                         </form>
                     </div>
                     <div className="playlistArea ">
                         {playlists?.map((playlist) => <Checkbox key={playlist._playlistName} {...{ video, playlist }} />)}
                     </div>
                     <div className="addToPlaylist__button flex p-2">
-                        <button onClick={() => setModalPlaylistOpen(false)}>CLOSE</button>
+                        <button className='btn btn-danger' onClick={() => setModalPlaylistOpen(false)}>CLOSE</button>
                     </div>
                 </div>
 
