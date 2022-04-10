@@ -4,6 +4,7 @@
   height: 8rem;
   top: 0;
   color: white;
+  z-index: 1;
   position: sticky;
 }
 

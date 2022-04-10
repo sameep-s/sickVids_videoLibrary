@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './videoComponent.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp, faThumbsDown, faClock, faListSquares } from '@fortawesome/free-solid-svg-icons';
+import { ModalPlaylist } from '../';
 
 const VideoComponent = (video) => {
 
-    const { _id, title, source, views, dislike, liked, description, likes } = video;
+    const [modalPlaylistOpen, setModalPlaylistOpen] = useState(false);
+
+    const { _id, title, source, views, disliked, liked, description, likes } = video;
+
 
     return (
         <>
@@ -23,9 +27,9 @@ const VideoComponent = (video) => {
                             <span>{views} views </span>
                         </div>
                         <div className="videoFrame__info__inner2">
-                            <button><FontAwesomeIcon icon={faThumbsUp} className={false ? "videoLiked" : ""} /> 666</button>
-                            <button><FontAwesomeIcon icon={faThumbsDown} className={false ? "videoDisliked" : ""} /> DISLIKE</button>
-                            <button><FontAwesomeIcon icon={faClock} /> Add To Playlist</button>
+                            <button><FontAwesomeIcon icon={faThumbsUp} className={liked ? "videoLiked" : ""} /> {likes}</button>
+                            <button><FontAwesomeIcon icon={faThumbsDown} className={disliked ? "videoDisliked" : ""} /> DISLIKE</button>
+                            <button onClick={() => setModalPlaylistOpen(true)}><FontAwesomeIcon icon={faClock} /> Add To Playlist</button>
                             <button><FontAwesomeIcon icon={faListSquares} /> Watch Later</button>
                         </div>
                     </div>
@@ -34,6 +38,8 @@ const VideoComponent = (video) => {
                         {description}
                     </div>
                 </div>
+
+                {modalPlaylistOpen && <ModalPlaylist {...{ video, setModalPlaylistOpen }} />}
 
             </div>
         </>
