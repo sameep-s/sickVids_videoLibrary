@@ -9,7 +9,6 @@ const ModalPlaylist = ({ video, setModalPlaylistOpen }) => {
     const { state_data, dispatch_data } = useData();
 
     const playlists = [...state_data.playlists];
-    console.log(playlists);
 
     function createPlaylistAndAddHandler() {
         if (playlistName.length === 0) {
@@ -42,27 +41,24 @@ const ModalPlaylist = ({ video, setModalPlaylistOpen }) => {
                         Add To Playlist
                     </div>
                     <div className="create__and__addToPlaylist__form flex a-item-center pl-1 pr-1">
-                        <form
-                            className='flex a-item-center '
-                            onSubmit={(e) => e.preventDefault()
-                            }>
 
+                        <form className='flex a-item-center ' onSubmit={(e) => e.preventDefault()}>
                             <input
                                 type="text"
-                                id='createAndAddToPlaylist'
                                 name='createAndAddToPlaylist'
-                                onChange={(e) => setPlaylistName(e.target.value)}
                                 autoComplete='off'
-                                className='input-txt'
                                 placeholder='Add playlist Name then press enter'
+                                value={playlistName}
+                                onChange={(e) => setPlaylistName(e.target.value)}
+                                id='createAndAddToPlaylist'
+                                className='input-txt'
                             />
 
-                            <button
-                                onClick={createPlaylistAndAddHandler}
-                                className='button__addToPLaylist btn btn-danger '>
+                            <button onClick={createPlaylistAndAddHandler} className='button__addToPLaylist btn btn-danger '>
                                 +
                             </button>
                         </form>
+
                     </div>
                     <div className="playlistArea ">
                         {playlists?.map((playlist) => <Checkbox key={playlist._playlistName} {...{ video, playlist }} />)}
