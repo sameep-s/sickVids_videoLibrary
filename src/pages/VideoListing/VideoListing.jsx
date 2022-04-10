@@ -1,6 +1,6 @@
 import React from 'react';
 import './videolisting.css';
-import { Navbar, Sidebar, CardVideoList, Checkbox } from '../../components';
+import { Navbar, Sidebar, CardVideoList } from '../../components';
 import { useData } from '../../util-context';
 
 const VideoListing = () => {
@@ -19,7 +19,6 @@ const VideoListing = () => {
 
                     {videoData?.length === 0 ? <h1 className='m-4'>Loading...</h1>
                         :
-
                         <main className='container__main_videoArea flex p-4' >
                             {videoData.map((video) => <CardVideoList key={video._id} {...video} />)}
                         </main>
