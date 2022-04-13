@@ -3,16 +3,23 @@ import './videoListItem.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { useData } from '../../util-context';
 
 const VideoListItem = (video) => {
-    const { _id, thumbnail, title, } = { ...video }
+
+    const { _id, thumbnail, title, actionType } = video;
+
+    const { dispatch_data } = useData();
 
     return (
         <>
             <div className="card__video__listItem flex a-item-center mt-1">
                 <Link to={`/videoPage/${_id}`}>
                     <div className="image__videoListItem">
-                        <img src={thumbnail} alt="imageListCard" />
+                        <img src={thumbnail}
+                            alt="imageListCard"
+                            onClick={() => { dispatch_data({ type: "ADD_TO_HISTORY", payload: { video: video, timeStamp: Date.now() } }) }}
+                        />
                     </div>
                 </Link>
 
@@ -21,9 +28,11 @@ const VideoListItem = (video) => {
                         {title}
                     </div>
                 </Link>
+
                 <div className="container__listItem__button">
-                    <button><FontAwesomeIcon icon={faTrashCan} /></button>
+                    <button onClick={() => { dispatch_data({ type: actionType, payload: { video: video } }) }}><FontAwesomeIcon icon={faTrashCan} /></button>
                 </div>
+
             </div>
         </>
     )

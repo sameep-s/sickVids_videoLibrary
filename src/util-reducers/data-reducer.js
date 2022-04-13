@@ -1,11 +1,6 @@
+import { presentInWatchLater } from "../util-functions/presentInWatchLater";
+
 export function DataReducer(state_data, action) {
-
-    function videoIsPresent(video, playlistName) {
-        const playlist = state_data.playlists.find((i) => i._playlistName === playlistName);
-
-        return (playlist.playlistVideos.filter((i) => i._id === video._id).length) > 0;
-    }
-
 
     switch (action.type) {
 
@@ -13,6 +8,52 @@ export function DataReducer(state_data, action) {
             return {
                 ...state_data, videos: [...action.payload.videos]
             }
+
+        case "ADD_TO_HISTORY":
+            {
+                return {
+                    ...state_data, history: [...state_data.history, { ...action.payload.video, timeStamp: Date.now() }]
+                }
+            }
+
+        case "REMOVE_FROM_HISTORY": {
+            console.log(state_data.history);
+            return {
+                ...state_data, history: state_data.history.filter((item) => item.timeStamp !== action.payload.video.timeStamp)
+            }
+        }
+
+        case "DELETE_HISTORY":
+            {
+                alert("History Deleted");
+
+                return {
+                    ...state_data, history: []
+                }
+            }
+
+        case "ADD_TO_WATCHLATER":
+            {
+                console.log(state_data.watchLater);
+
+                if (presentInWatchLater(state_data.watchLater, action.payload.video)) {
+                    return {
+                        ...state_data, watchLater: [...state_data.watchLater.filter((item) => item._id !== action.payload.video._id)]
+                    }
+                } else
+
+                    return {
+                        ...state_data, watchLater: [...state_data.watchLater, action.payload.video]
+                    }
+            }
+
+        case "REMOVE_FROM_WATCHLATER":
+            {
+                return {
+                    ...state_data, watchLater: [...state_data.watchLater.filter((item) => item._id !== action.payload.video._id)]
+                }
+            }
+
 
         case "CREATE_NEW_PLAYLIST":
             return {
