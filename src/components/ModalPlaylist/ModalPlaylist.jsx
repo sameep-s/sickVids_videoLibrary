@@ -27,7 +27,6 @@ const ModalPlaylist = ({ video, setModalPlaylistOpen }) => {
         alert("playlist Created Sussessfully");
         alert(`added to playlist ${playlistName}`);
         setPlaylistName("");
-        setModalPlaylistOpen(false);
     }
 
 
