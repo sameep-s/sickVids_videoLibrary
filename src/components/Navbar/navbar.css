@@ -65,6 +65,10 @@
   border-left: 0.1rem solid var(--dark);
 }
 
+.input-dark:focus{
+  outline: transparent;
+}
+
 .btn-nav {
   display: inline-flex;
   width: 10rem;

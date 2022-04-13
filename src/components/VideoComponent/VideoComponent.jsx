@@ -42,8 +42,8 @@ const VideoComponent = (video) => {
                             <span>{views} views </span>
                         </div>
                         <div className="videoFrame__info__inner2">
-                            <button onClick={addToLikeHandler}><FontAwesomeIcon icon={faThumbsUp} className={false ? "videoLiked" : ""} /> 666</button>
-                            <button><FontAwesomeIcon icon={faThumbsDown} className={false ? "videoDisliked" : ""} /> DISLIKE</button>
+                            <button onClick={addToLikeHandler}><FontAwesomeIcon icon={faThumbsUp} className={false ? "videoLiked" : ""} /> {likes}</button>
+                            <button onClick={() => dispatch_data({ type: "DISLIKE_VIDEO", payload: { video: video } })}><FontAwesomeIcon icon={faThumbsDown} className={false ? "videoDisliked" : ""} /> DISLIKE</button>
                             <button><FontAwesomeIcon icon={faClock} /> Add To Playlist</button>
                             <button onClick={addToWatchLaterHandler}> <FontAwesomeIcon icon={presentInWatchLater(state_data.watchLater, video) ? faCheck : faListSquares} className=" pr-1" />Watch Later</button>
                         </div>

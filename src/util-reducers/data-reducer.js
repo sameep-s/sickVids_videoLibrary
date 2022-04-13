@@ -1,9 +1,17 @@
 import { presentInWatchLater } from "../util-functions/presentInWatchLater";
 
 
+
+
 export function DataReducer(state_data, action) {
 
-    console.log();
+
+    function isVideoPresentInLiked(videoId) {
+        console.log(state_data.liked);
+        return state_data.liked.filter((item) => item._id === videoId).length === 0
+    }
+
+
 
     switch (action.type) {
 
@@ -20,7 +28,6 @@ export function DataReducer(state_data, action) {
             }
 
         case "REMOVE_FROM_HISTORY": {
-            console.log(state_data.history);
             return {
                 ...state_data, history: state_data.history.filter((item) => item.timeStamp !== action.payload.video.timeStamp)
             }
@@ -37,7 +44,6 @@ export function DataReducer(state_data, action) {
 
         case "ADD_TO_WATCHLATER":
             {
-                console.log(state_data.watchLater);
 
                 if (presentInWatchLater(state_data.watchLater, action.payload.video)) {
                     return {
@@ -59,10 +65,15 @@ export function DataReducer(state_data, action) {
 
         case "LIKE_VIDEO":
             {
-                action.payload.video.liked = true;
-                return {
-                    ...state_data, liked: [...state_data.liked, action.payload.video]
-                }
+                console.log(action.payload.video._id);
+                return isVideoPresentInLiked(action.payload.video._id) ?
+                    {
+                        ...state_data, liked: [...state_data.liked, action.payload.video]
+                    }
+                    :
+                    {
+                        ...state_data, liked: [...state_data.liked.filter((video) => video._id !== action.payload.video._id)]
+                    }
             }
 
         case "DISLIKE_VIDEO":
