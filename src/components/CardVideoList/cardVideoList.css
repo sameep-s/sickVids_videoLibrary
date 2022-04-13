@@ -7,12 +7,12 @@
 
 }
 
-img{
+.image__card__videoList{
     width: 100%;
     transition: 500ms;
 }
 
-img:hover{
+.image__card__videoList:hover{
     filter: brightness(85%);
 }
 
