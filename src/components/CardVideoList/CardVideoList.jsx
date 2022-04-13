@@ -13,14 +13,15 @@ const CardVideoList = (video) => {
         dispatch_data({ type: "DELETE_FROM_PLAYLIST", payload: { video: { ...video }, playlistName: "playlist1" } })
     }
 
+    function addToHistoryHandler() {
+        dispatch_data({ type: "ADD_TO_HISTORY", payload: { video: video } })
+    }
+
     return (
         <>
             <div className="container__card__videoListing m-1">
                 <Link to={`/videoPage/${_id}`}>
-                    <img
-                        className='image__card__videoList'
-                        src={thumbnail}
-                        alt="thumbnail" />
+                    <img src={thumbnail} alt="thumbnail" onClick={addToHistoryHandler} />
                 </Link>
                 <div className="card__videoListing__content">
                     <div className="card__videoListing_title flex mt-1">{title}</div>
@@ -30,7 +31,7 @@ const CardVideoList = (video) => {
                     </div>
 
                     <div className="card__videoListing__buttonContainer ">
-                        <button className='videoList__card__btn' >Add To Watch Later</button>
+                        <button className='videoList__card__btn' onClick={addToHistoryHandler} >Add To Watch Later</button>
                         <button className='videoList__card__btn' onClick={addToPlaylistHandler}>Add To Playlist</button>
                     </div>
                 </div>

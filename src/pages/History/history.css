@@ -16,3 +16,8 @@
     font-family: var(--font-heading);
 }
 
+.container__videoList_heading span{
+    margin-left: auto;
+    font-size: 1.5rem;
+}
+
