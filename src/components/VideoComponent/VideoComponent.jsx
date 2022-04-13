@@ -23,8 +23,6 @@ const VideoComponent = (video) => {
     const isLiked = isVideoPresentInLiked(state_data.liked, _id);
 
     return (
-
-
         <>
             <div className="container__video mb-2 mr-4">
 
