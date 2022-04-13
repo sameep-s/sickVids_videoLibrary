@@ -7,7 +7,6 @@ import { useData } from '../../util-context';
 
 const VideoListItem = (video) => {
     const { _id, thumbnail, title, actionType } = video;
-
     const { dispatch_data } = useData();
 
 

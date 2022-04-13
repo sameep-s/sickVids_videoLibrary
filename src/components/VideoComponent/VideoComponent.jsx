@@ -3,18 +3,15 @@ import './videoComponent.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp, faThumbsDown, faClock, faListSquares, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { useData } from '../../util-context';
-import { presentInWatchLater } from "../../util-functions/presentInWatchLater";
+import { presentInWatchLater, isVideoPresentInLiked } from "../../util-functions/";
 
 
 const VideoComponent = (video) => {
     const { state_data, dispatch_data } = useData();
-
-
     const { _id, title, source, views, dislike, liked, description, likes } = video;
 
 
     function addToWatchLaterHandler() {
-        console.log("watchWorking");
         dispatch_data({ type: "ADD_TO_WATCHLATER", payload: { video: video } })
 
     }
@@ -22,6 +19,10 @@ const VideoComponent = (video) => {
     function addToLikeHandler() {
         dispatch_data({ type: "LIKE_VIDEO", payload: { video: video } })
     }
+
+    const isLiked = isVideoPresentInLiked(state_data.liked, _id);
+
+
 
 
     return (
@@ -32,7 +33,6 @@ const VideoComponent = (video) => {
 
                 <div className="videoFrame">
                     <iframe width="100%" src={source} title="YouTube video player" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; " allowFullScreen="allowFullScreen"></iframe>,
-
                 </div>
 
                 <div className="container__video__content">
@@ -42,8 +42,8 @@ const VideoComponent = (video) => {
                             <span>{views} views </span>
                         </div>
                         <div className="videoFrame__info__inner2">
-                            <button onClick={addToLikeHandler}><FontAwesomeIcon icon={faThumbsUp} className={false ? "videoLiked" : ""} /> {likes}</button>
-                            <button onClick={() => dispatch_data({ type: "DISLIKE_VIDEO", payload: { video: video } })}><FontAwesomeIcon icon={faThumbsDown} className={false ? "videoDisliked" : ""} /> DISLIKE</button>
+                            <button onClick={addToLikeHandler}><FontAwesomeIcon icon={faThumbsUp} style={!isLiked ? { color: "blue" } : ""} /> {likes}</button>
+                            <button onClick={() => dispatch_data({ type: "DISLIKE_VIDEO", payload: { video: video } })}><FontAwesomeIcon icon={faThumbsDown} /> DISLIKE</button>
                             <button><FontAwesomeIcon icon={faClock} /> Add To Playlist</button>
                             <button onClick={addToWatchLaterHandler}> <FontAwesomeIcon icon={presentInWatchLater(state_data.watchLater, video) ? faCheck : faListSquares} className=" pr-1" />Watch Later</button>
                         </div>

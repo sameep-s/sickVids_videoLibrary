@@ -1,17 +1,9 @@
 import { presentInWatchLater } from "../util-functions/presentInWatchLater";
-
+import { isVideoPresentInLiked } from "../util-functions";
 
 
 
 export function DataReducer(state_data, action) {
-
-
-    function isVideoPresentInLiked(videoId) {
-        console.log(state_data.liked);
-        return state_data.liked.filter((item) => item._id === videoId).length === 0
-    }
-
-
 
     switch (action.type) {
 
@@ -64,23 +56,26 @@ export function DataReducer(state_data, action) {
             }
 
         case "LIKE_VIDEO":
-            {
-                console.log(action.payload.video._id);
-                return isVideoPresentInLiked(action.payload.video._id) ?
-                    {
-                        ...state_data, liked: [...state_data.liked, action.payload.video]
-                    }
-                    :
-                    {
-                        ...state_data, liked: [...state_data.liked.filter((video) => video._id !== action.payload.video._id)]
-                    }
-            }
+            return isVideoPresentInLiked(state_data.liked, action.payload.video._id) ?
+                {
+                    ...state_data, liked: [...state_data.liked, action.payload.video]
+                }
+                :
+                {
+                    ...state_data, liked: [...state_data.liked.filter((video) => video._id !== action.payload.video._id)]
+                }
+
 
         case "DISLIKE_VIDEO":
-            {
-                return {
-                    ...state_data, liked: [...state_data.liked.filter((item) => item._id !== action.payload._id)]
-                }
+
+            return {
+                ...state_data, liked: [...state_data.liked.filter((item) => item._id !== action.payload.video._id)]
+            }
+
+
+        case "REMOVE_FROM_LIKED_VIDEOS":
+            return {
+                ...state_data, liked: [...state_data.liked.filter((item) => item._id !== action.payload.video._id)]
             }
 
 
