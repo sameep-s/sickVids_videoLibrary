@@ -3,6 +3,8 @@ import './landingPage.css';
 import { Navbar, CardCategory, Footer } from '../../components';
 import axios from 'axios';
 
+
+
 const LandingPage = () => {
 
     const [categoryData, setCategoryData] = useState([]);

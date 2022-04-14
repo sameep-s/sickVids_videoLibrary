@@ -1,4 +1,5 @@
 import "./App.css";
+import Mockman from 'mockman-js';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
   LandingPage,
@@ -20,6 +21,7 @@ function App() {
 
       <Routes>
         <Route path='/' element={<LandingPage />} />
+        <Route path='mock' element={<Mockman />} />
         <Route path="/videoListing" element={<VideoListing />} />
         <Route path="/videoPage" element={<VideoPage />} />
         <Route path="/watchLater" element={<WatchLater />} />

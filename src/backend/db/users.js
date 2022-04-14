@@ -15,8 +15,17 @@ export const users = [
     password: "adarshBalika123",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    likedVideos: [],
-    history: [],
-    playlists: [],
   },
+
+  {
+    _id: uuid(),
+    firstName: "Sameep",
+    lastName: "Sharma",
+    email: "sameep@gmail.com",
+    password: "password123",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  }
+
+
 ];
