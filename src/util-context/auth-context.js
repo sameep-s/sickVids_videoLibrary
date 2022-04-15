@@ -6,14 +6,13 @@ const AuthContext = createContext();
 
 const signupHandler = async () => {
     try {
-        const response = await axios.post("/api/auth/signup", {
-            email: 'sameep@gmail.com',
-            password: 'sameep123'
+        const response = await axios.post("/api/auth/login", {
+            email: "sameep@gmail.com",
+            password: "password123",
         });
-        console.log(response);
 
         // saving the encodedToken in the localStorage
-        console.log(response);
+        console.log(`responseData`, response);
         localStorage.setItem("token", response.data.encodedToken);
 
     } catch (error) {
@@ -21,13 +20,19 @@ const signupHandler = async () => {
     }
 };
 
-signupHandler();
-
-const token = localStorage.getItem("token");
-console.log(token);
-
 
 const AuthProvider = ({ children }) => {
+
+
+    // signupHandler();
+    const encodedToken = localStorage.getItem("token");
+    console.log(encodedToken);
+
+    localStorage.removeItem("token");
+    console.log(encodedToken);
+
+
+
     return (
         <AuthContext.Provider value={[]}>
             {children}

@@ -1,11 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Navbar from '../Navbar/Navbar';
 import "./login.css";
 
 const Login = () => {
     return (
 
         <>
-            <main className="container-main">
+            <Navbar />
+            <main className="container-main__login">
                 <form action="" className="form-wrapper">
                     <div className="form-heading">Welcome Back</div>
 
@@ -58,10 +61,11 @@ const Login = () => {
 
                     <div className="form-button mt-3">
                         <button className="btn-sq btn-light">Login</button>
+                        <button className="btn-sq mt-2">Test Login</button>
                     </div>
 
                     <div className="form-end form-utility mt-1">
-                        Not a Member? <a className="form-link">Sign in.</a>
+                        Not a Member? <Link to={'/signup'} className="form-link">Sign in.</Link>
                     </div>
 
                 </form>

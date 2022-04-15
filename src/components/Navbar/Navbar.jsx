@@ -37,9 +37,9 @@ const Navbar = () => {
                             </div>
                         </div>
 
-                        <a className="btn-nav jc-center a-item-center"
+                        <Link to={"/login"} className="btn-nav jc-center a-item-center"
                         >Login
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </nav>

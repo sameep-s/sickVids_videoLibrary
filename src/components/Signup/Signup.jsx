@@ -1,11 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Navbar from '../Navbar/Navbar';
 import './signup.css';
 
 const Signup = () => {
     return (
 
         <>
-            <main className="container-main">
+            <Navbar />
+            <main className="container-main__signup">
                 <form action="" className="form-wrapper">
                     <div className="form-heading">Sign Up</div>
                     <div className="form-body">
@@ -72,11 +75,10 @@ const Signup = () => {
                     </div>
 
                     <div className="form-end form-utility mt-1">
-                        Already have a Account? <a className="form-link">Log in</a>
+                        Already have a Account? <Link to={'/login'} className="form-link">Log in</Link>
                     </div>
                 </form>
             </main>
-
         </>
     )
 }

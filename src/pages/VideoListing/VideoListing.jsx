@@ -10,7 +10,6 @@ const VideoListing = () => {
 
 
     const { state_data } = useData();
-
     const videoData = [...state_data.videos]
 
 
