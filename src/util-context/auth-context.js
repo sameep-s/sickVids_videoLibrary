@@ -7,21 +7,24 @@ const AuthContext = createContext();
 const signupHandler = async () => {
     try {
         const response = await axios.post("/api/auth/signup", {
-            firstName: "Adarh",
-            lastName: "Bali",
-            email: "adabalssika@neog.camp",
-            password: "rshBalika",
+            email: 'sameep@gmail.com',
+            password: 'sameep123'
         });
+        console.log(response);
+
         // saving the encodedToken in the localStorage
+        console.log(response);
         localStorage.setItem("token", response.data.encodedToken);
+
     } catch (error) {
         console.log(error);
     }
 };
 
+signupHandler();
 
-
-console.log(signupHandler());
+const token = localStorage.getItem("token");
+console.log(token);
 
 
 const AuthProvider = ({ children }) => {
