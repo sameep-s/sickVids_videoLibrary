@@ -1,0 +1,19 @@
+.container__main__404{
+    width: 100%;
+    height: 100vh;
+}
+
+.container__inner__404{
+    width: 70%;
+}
+
+.error__heading{
+    font-family: var(--font-heading);
+    font-weight: bold;
+    font-size: 15rem;
+}
+
+.error__subHeading{
+    font-size: 2rem;
+    font-family: var(--font-heading);
+}

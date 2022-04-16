@@ -11,7 +11,8 @@ import {
   PlaylistPage,
   LikedVIdeos,
   History,
-  PlaylistVideo
+  PlaylistVideo,
+  Error404
 
 } from './pages';
 
@@ -21,8 +22,6 @@ import {
 function App() {
   return (
     <BrowserRouter>
-
-
       <Routes>
         {/* Public Routes */}
         <Route path='/' element={<LandingPage />} />
@@ -32,7 +31,8 @@ function App() {
         <Route path="/videoListing" element={<VideoListing />} />
         <Route path="/videoPage" element={<VideoPage />} />
         <Route path="/videoPage/:videoId" element={<VideoPage />} />
-
+        <Route path="*" element={<Error404 />} />
+          
         {/* Private Routes */}
         <Route path="/watchLater" element={<RequireAuth><WatchLater /></RequireAuth>} />
         <Route path="/playlists" element={<RequireAuth><PlaylistPage /></RequireAuth>} />
