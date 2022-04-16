@@ -1,7 +1,8 @@
 import "./App.css";
 import Mockman from 'mockman-js';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Login, Signup } from "./components";
+import { RequireAuth } from "./privateRoutes/requireAuth";
 import {
   LandingPage,
   VideoListing,
@@ -15,11 +16,13 @@ import {
 } from './pages';
 
 
-function App() {
 
-  console.log(localStorage.getItem('token'));
+
+function App() {
   return (
     <BrowserRouter>
+
+
       <Routes>
         {/* Public Routes */}
         <Route path='/' element={<LandingPage />} />
@@ -30,13 +33,12 @@ function App() {
         <Route path="/videoPage" element={<VideoPage />} />
         <Route path="/videoPage/:videoId" element={<VideoPage />} />
 
-
         {/* Private Routes */}
-        <Route path="/watchLater" element={<WatchLater />} />
-        <Route path="/playlists" element={<PlaylistPage />} />
-        <Route path="/playlistVideo/:playlistName" element={<PlaylistVideo />} />
-        <Route path="/history" element={<History />} />
-        <Route path="/likedVideos" element={<LikedVIdeos />} />
+        <Route path="/watchLater" element={<RequireAuth><WatchLater /></RequireAuth>} />
+        <Route path="/playlists" element={<RequireAuth><PlaylistPage /></RequireAuth>} />
+        <Route path="/playlistVideo/:playlistName" element={<RequireAuth><PlaylistVideo /></RequireAuth>} />
+        <Route path="/history" element={<RequireAuth><History /></RequireAuth>} />
+        <Route path="/likedVideos" element={<RequireAuth><LikedVIdeos /></RequireAuth>} />
       </Routes>
       <div className="App" />
     </BrowserRouter>
