@@ -5,6 +5,7 @@
     cursor: pointer;
     filter: brightness(80%);
     transition: 360ms;
+    z-index: -1;
 }
 
 .card__category:hover{

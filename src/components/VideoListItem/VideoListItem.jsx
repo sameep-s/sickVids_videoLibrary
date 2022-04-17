@@ -6,10 +6,9 @@ import { Link } from 'react-router-dom';
 import { useData } from '../../util-context';
 
 const VideoListItem = (video) => {
+
     const { _id, thumbnail, title, actionType } = video;
     const { dispatch_data } = useData();
-
-
 
     return (
         <>
@@ -23,8 +22,8 @@ const VideoListItem = (video) => {
                         />
                     </div>
                 </Link>
-                <Link to={`/videoPage/${_id}`}>
 
+                <Link to={`/videoPage/${_id}`}>
                     <div className="video__listItem_title pl-2">
                         {title}
                     </div>
