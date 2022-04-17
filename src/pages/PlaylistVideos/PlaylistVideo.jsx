@@ -35,9 +35,6 @@ const PlaylistVideo = () => {
                             ? <h1>Nothing Here</h1> :
                             playlist?.map((video) => <VideoListItem key={video._id} {...video} />)
                         }
-
-
-
                     </div>
                 </div>
 

@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 const PlaylistItem = (playlist) => {
 
     const { dispatch_data } = useData();
-
     const { _playlistName } = playlist;
 
     return (

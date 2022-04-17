@@ -1,0 +1,61 @@
+
+/* modalPlaylist */
+
+.container__overlay{
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.create__and__addToPlaylist__form form input{
+    width: 20rem;
+    margin: .5rem 1rem;
+    border: .1rem solid var(--dark);
+}
+
+.create__and__addToPlaylist__form .btn,
+.addToPlaylist__button .btn{
+   margin: .5rem 1rem; 
+   padding: .5rem 1rem;
+   margin-left: auto;
+}
+
+.container__addToPlaylist{
+    border-radius: 1rem;
+    width: 30rem;
+    z-index: 5;
+    height: 45rem;
+    background-color: white;
+}
+
+.addToPlaylist__heading{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: .1rem solid var(--dark);
+}
+
+.playlistArea{
+    width: 100%;
+    height: 28rem;
+    padding: 2rem;
+    overflow-y: scroll;
+    font-size: 2rem;
+    border-bottom: .1rem solid var(--dark);
+}
+
+
+.addToPlaylist__button button{
+    margin-left: auto;
+    
+}
+
+.container__invisible__overlay{
+    background-color: rgba(0, 0, 0, 0.61);
+    width: 100vw;
+    z-index: 4;
+    height: 100vh;
+}
