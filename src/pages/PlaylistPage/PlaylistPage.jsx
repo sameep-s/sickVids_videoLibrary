@@ -37,7 +37,6 @@ const PlaylistPage = () => {
 
             <div className="main__videoListArea flex">
                 <Sidebar />
-
                 <div className="container__videoList__videos flex jc-center  p-2 ">
                     <div className="wrapper__videoList ">
                         <div className="container__videoList_heading">
@@ -64,10 +63,8 @@ const PlaylistPage = () => {
                         <div className="container__playlists flex mt-2">
                             {playlists.map((playlist) => <PlaylistItem key={playlist._playlistName} {...playlist} />)}
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </>
     )

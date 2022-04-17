@@ -1,4 +1,6 @@
 import { presentInWatchLater } from "../util-functions/presentInWatchLater";
+import { isVideoPresentInLiked } from "../util-functions";
+
 
 export function DataReducer(state_data, action) {
 
@@ -17,7 +19,6 @@ export function DataReducer(state_data, action) {
             }
 
         case "REMOVE_FROM_HISTORY": {
-            console.log(state_data.history);
             return {
                 ...state_data, history: state_data.history.filter((item) => item.timeStamp !== action.payload.video.timeStamp)
             }
@@ -34,7 +35,6 @@ export function DataReducer(state_data, action) {
 
         case "ADD_TO_WATCHLATER":
             {
-                console.log(state_data.watchLater);
 
                 if (presentInWatchLater(state_data.watchLater, action.payload.video)) {
                     return {
@@ -54,8 +54,32 @@ export function DataReducer(state_data, action) {
                 }
             }
 
+        case "LIKE_VIDEO":
+            return isVideoPresentInLiked(state_data.liked, action.payload.video._id) ?
+                {
+                    ...state_data, liked: [...state_data.liked, action.payload.video]
+                }
+                :
+                {
+                    ...state_data, liked: [...state_data.liked.filter((video) => video._id !== action.payload.video._id)]
+                }
+
+
+        case "DISLIKE_VIDEO":
+
+            return {
+                ...state_data, liked: [...state_data.liked.filter((item) => item._id !== action.payload.video._id)]
+            }
+
+
+        case "REMOVE_FROM_LIKED_VIDEOS":
+            return {
+                ...state_data, liked: [...state_data.liked.filter((item) => item._id !== action.payload.video._id)]
+            }
+
 
         case "CREATE_NEW_PLAYLIST":
+
             return {
                 ...state_data, playlists: [...state_data.playlists, { _playlistName: action.payload.playlistName, playlistVideos: [] }]
             }
@@ -104,6 +128,7 @@ export function DataReducer(state_data, action) {
                         } : playlist
                 )
             }
+
 
         case "CREATE_AND_ADD_TO_PLAYLIST": {
             return {

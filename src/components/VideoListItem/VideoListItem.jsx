@@ -8,15 +8,15 @@ import { useData } from '../../util-context';
 const VideoListItem = (video) => {
 
     const { _id, thumbnail, title, actionType } = video;
-
     const { dispatch_data } = useData();
 
     return (
         <>
             <div className="card__video__listItem flex a-item-center mt-1">
                 <Link to={`/videoPage/${_id}`}>
-                    <div className="image__videoListItem">
+                    <div className="image__wrapper__videoListItem">
                         <img src={thumbnail}
+                            className="image__videoListItem"
                             alt="imageListCard"
                             onClick={() => { dispatch_data({ type: "ADD_TO_HISTORY", payload: { video: video, timeStamp: Date.now() } }) }}
                         />
