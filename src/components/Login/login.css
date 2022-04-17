@@ -1,11 +1,9 @@
 @import "../../css/button.css";
 
-.container-main {
-  height: calc(100vh - 6rem);
+.container-main__login {
   margin: 2rem 0;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .form-wrapper {
@@ -55,6 +53,12 @@
 .form-checkbox {
   height: 2rem;
   width: 2rem;
+  outline: none;
+
+}
+
+.form-checkbox:focus{
+  outline: none;
 }
 
 .form-utility {

@@ -2,9 +2,22 @@ import React from 'react';
 import "./navbar.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faHome } from "@fortawesome/free-solid-svg-icons";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../util-context';
 
 const Navbar = () => {
+
+
+    const { user, setUser } = useAuth();
+    const navigate = useNavigate();
+
+    const logoutHandler = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        setUser(null);
+        navigate('/', { replace: true });
+    }
+
 
     return (
         <>
@@ -37,9 +50,22 @@ const Navbar = () => {
                             </div>
                         </div>
 
-                        <a className="btn-nav jc-center a-item-center"
-                        >Login
-                        </a>
+                        {user ?
+
+                            <button
+                                onClick={logoutHandler}
+                                className="btn-nav jc-center a-item-center"
+                            >
+                                Log Out
+                            </button>
+                            :
+
+                            <Link to={"/login"} className="btn-nav jc-center a-item-center"
+                            >Login
+                            </Link>
+                        }
+
+
                     </div>
                 </div>
             </nav>

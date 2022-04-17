@@ -6,7 +6,11 @@
     border: .1rem solid transparent;
 }
 
-.image__card__videoList{
+.container__card__videoListing:hover{
+    transform: scale(1.02);
+}
+
+img{
     width: 100%;
     height: 20rem;
     object-fit: cover;

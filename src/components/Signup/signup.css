@@ -1,8 +1,7 @@
 @import "../../css/button.css";
 
-.container-main {
-  height: calc(100vh - 6rem);
-  margin: 2rem 0;
+.container-main__signup {
+  margin:  2rem 0;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -3,21 +3,47 @@ import './videoComponent.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp, faThumbsDown, faClock, faListSquares, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { ModalPlaylist } from '../';
-import { useData } from '../../util-context';
+import { useAuth, useData } from '../../util-context';
 import { presentInWatchLater, isVideoPresentInLiked } from "../../util-functions/";
+import { Navigate, useNavigate } from 'react-router-dom';
+
 
 const VideoComponent = (video) => {
+    const { user } = useAuth();
+    const navigate = useNavigate();
     const { state_data, dispatch_data } = useData();
     const [modalPlaylistOpen, setModalPlaylistOpen] = useState(false);
+
     const { _id, title, source, views, disliked, liked, description, likes } = video;
 
     function addToWatchLaterHandler() {
-        dispatch_data({ type: "ADD_TO_WATCHLATER", payload: { video: video } })
-
+        user ?
+            dispatch_data({ type: "ADD_TO_WATCHLATER", payload: { video: video } })
+            :
+            navigate('/login', { replace: true })
     }
 
     function addToLikeHandler() {
-        dispatch_data({ type: "LIKE_VIDEO", payload: { video: video } })
+        user ?
+            dispatch_data({ type: "LIKE_VIDEO", payload: { video: video } })
+            :
+            navigate('/login', { replace: true })
+
+    }
+
+    function dislikeHandler() {
+        user ?
+            dispatch_data({ type: "DISLIKE_VIDEO", payload: { video: video } })
+            :
+            navigate('/login', { replace: true })
+    }
+
+    function addToPLaylistHandler() {
+        user ?
+            setModalPlaylistOpen(true)
+            :
+            navigate('/login', { replace: true })
+
     }
 
     const isLiked = isVideoPresentInLiked(state_data.liked, _id);
@@ -38,8 +64,8 @@ const VideoComponent = (video) => {
                         </div>
                         <div className="videoFrame__info__inner2">
                             <button onClick={addToLikeHandler}><FontAwesomeIcon icon={faThumbsUp} style={!isLiked ? { color: "blue" } : ""} /> {likes}</button>
-                            <button onClick={() => dispatch_data({ type: "DISLIKE_VIDEO", payload: { video: video } })}><FontAwesomeIcon icon={faThumbsDown} /> DISLIKE</button>
-                            <button onClick={() => setModalPlaylistOpen(true)}><FontAwesomeIcon icon={faClock} /> Add To Playlist</button>
+                            <button onClick={dislikeHandler}><FontAwesomeIcon icon={faThumbsDown} /> DISLIKE</button>
+                            <button onClick={addToPLaylistHandler}><FontAwesomeIcon icon={faClock} /> Add To Playlist</button>
                             <button onClick={addToWatchLaterHandler}> <FontAwesomeIcon icon={presentInWatchLater(state_data.watchLater, video) ? faCheck : faListSquares} className=" pr-1" />Watch Later</button>
                         </div>
                     </div>

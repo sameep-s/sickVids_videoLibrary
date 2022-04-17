@@ -1,30 +1,34 @@
 import React, { useState } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ModalPlaylist } from "../";
-import { useData } from '../../util-context';
+import { useAuth, useData } from '../../util-context';
 import "./cardVideoList.css";
 import { presentInWatchLater } from "../../util-functions/presentInWatchLater";
 
 const CardVideoList = (video) => {
 
+    const { user } = useAuth()
+    const navigate = useNavigate();
     const { state_data, dispatch_data } = useData();
     const [isInWatchLater, setIsInWatchLater] = useState(false)
     const [modalPlaylistOpen, setModalPlaylistOpen] = useState(false);
-    
     const { _id, title, thumbnail, likes, category } = { ...video };
 
 
     function addToHistoryHandler() {
-        dispatch_data({ type: "ADD_TO_HISTORY", payload: { video: video } })
+        user ?
+            dispatch_data({ type: "ADD_TO_HISTORY", payload: { video: video } })
+            :
+            navigate('/login', { replace: true })
     }
 
     function addToWatchLaterHandler() {
-        dispatch_data({ type: "ADD_TO_WATCHLATER", payload: { video: video } })
-
+        user ?
+            dispatch_data({ type: "ADD_TO_WATCHLATER", payload: { video: video } })
+            :
+            navigate('/login', { replace: true })
     }
-
-
 
     return (
         <>

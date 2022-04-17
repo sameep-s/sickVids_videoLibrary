@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import { DataProvider } from "./util-context";
+import { DataProvider, AuthProvider } from "./util-context";
 
 
 import { makeServer } from "./server";
@@ -12,7 +12,9 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <DataProvider>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </DataProvider>
   </React.StrictMode>,
   document.getElementById("root")

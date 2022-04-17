@@ -1,12 +1,50 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useAuth } from '../../util-context';
+import Navbar from '../Navbar/Navbar';
 import "./login.css";
 
 const Login = () => {
-    return (
 
+    const [loginFormData, setLoginFormData] = useState({ email: "", password: "" });
+    const { user, loginUser } = useAuth();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    useEffect(() => {
+        if (user) {
+            navigate(location?.state?.from || '/videoListing', { replace: true });
+        }
+    }, [user]);
+
+
+
+    const loginHandler = () => {
+        if (loginFormData.email && loginFormData.password === "") {
+            alert("Please Fill out form correctly");
+        }
+
+        loginUser(loginFormData.email, loginFormData.password);
+        if (user) {
+            navigate("/", { replace: true });
+        }
+
+        setLoginFormData(() => ({ email: "", password: "" }));
+    }
+
+    const testLoginHandler = () => {
+        loginUser("sameep@gmail.com", "p123");
+        setLoginFormData(() => ({ email: "", password: "" }));
+    }
+
+    return (
         <>
-            <main className="container-main">
-                <form action="" className="form-wrapper">
+            <Navbar />
+            <main className="container-main__login">
+                <form onSubmit={(e) => {
+                    e.preventDefault();
+                    loginHandler()
+                }} className="form-wrapper">
                     <div className="form-heading">Welcome Back</div>
 
                     <div className="form-body">
@@ -20,7 +58,11 @@ const Login = () => {
                             name=""
                             id="email"
                             className="form-input mt-1"
+                            value={loginFormData.email}
                             autoComplete="off"
+                            onChange={(e) => {
+                                setLoginFormData(() => ({ ...loginFormData, email: e.target.value }))
+                            }}
                         />
 
                         <label htmlFor="password" className="form-label mt-3">
@@ -31,8 +73,12 @@ const Login = () => {
                             type="password"
                             name=""
                             id="password"
+                            value={loginFormData.password}
                             className="form-input mt-1"
                             autoComplete="off"
+                            onChange={e =>
+                                setLoginFormData(() => ({ ...loginFormData, password: e.target.value }))
+                            }
                         />
                     </div>
 
@@ -57,17 +103,17 @@ const Login = () => {
                     </div>
 
                     <div className="form-button mt-3">
-                        <button className="btn-sq btn-light">Login</button>
+                        <button type='button' className="btn-sq btn-light" onClick={() => loginHandler()} >Login</button>
+                        <button type='button' className="btn-sq mt-2" onClick={() => testLoginHandler()}>Test Login</button>
                     </div>
 
                     <div className="form-end form-utility mt-1">
-                        Not a Member? <a className="form-link">Sign in.</a>
+                        Not a Member? <Link to={'/signup'} className="form-link">Sign in.</Link>
                     </div>
 
                 </form>
 
             </main>
-
         </>
     );
 }
