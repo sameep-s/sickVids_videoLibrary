@@ -7,6 +7,7 @@ import { useAuth, useData } from '../../util-context';
 import { presentInWatchLater, isVideoPresentInLiked } from "../../util-functions/";
 import { Navigate, useNavigate } from 'react-router-dom';
 
+
 const VideoComponent = (video) => {
     const { user } = useAuth();
     const navigate = useNavigate();
@@ -42,6 +43,7 @@ const VideoComponent = (video) => {
             setModalPlaylistOpen(true)
             :
             navigate('/login', { replace: true })
+
     }
 
     const isLiked = isVideoPresentInLiked(state_data.liked, _id);
