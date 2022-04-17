@@ -6,6 +6,8 @@ import PlaylistPage from "./PlaylistPage/PlaylistPage";
 import LikedVIdeos from "./LikedVideos/LikedVIdeos";
 import History from "./History/History";
 import PlaylistVideo from "./PlaylistVideos/PlaylistVideo";
+import Error404 from "./Error404/Error404";
+
 
 export {
     LandingPage,
@@ -15,6 +17,7 @@ export {
     PlaylistPage,
     LikedVIdeos,
     History,
-    PlaylistVideo
+    PlaylistVideo,
+    Error404,
 
 };

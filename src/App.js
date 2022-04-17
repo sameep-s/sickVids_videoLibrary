@@ -8,16 +8,15 @@ import {
   PlaylistPage,
   LikedVIdeos,
   History,
-  PlaylistVideo
+  PlaylistVideo,
+  Error404
 
 } from './pages';
 
 
 function App() {
   return (
-
     <BrowserRouter>
-
       <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route path="/videoListing" element={<VideoListing />} />
@@ -28,14 +27,13 @@ function App() {
         <Route path="/history" element={<History />} />
         <Route path="/likedVideos" element={<LikedVIdeos />} />
         <Route path="/videoPage/:videoId" element={<VideoPage />} />
+
+        <Route path="*" element={<Error404 />} />
       </Routes>
 
 
       <div className="App" />
-
     </BrowserRouter>
-
-
   );
 }
 
