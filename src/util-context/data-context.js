@@ -1,7 +1,6 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
 import { DataReducer } from "../util-reducers/data-reducer";
 import axios from 'axios';
-import { v4 as uuid } from 'uuid';
 
 
 const defaultDataContextVal = [{ items: "none" }];
@@ -17,7 +16,6 @@ const DataProvider = ({ children }) => {
             try {
                 const dataResponse = await axios.get('/api/videos');
                 const videos = dataResponse.data.videos;
-                console.log(videos);
                 dispatch_data({ type: "SET_VIDEOS", payload: { videos: videos } })
 
             }

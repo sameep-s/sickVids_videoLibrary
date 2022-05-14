@@ -7,7 +7,7 @@ import { useData } from '../../util-context';
 
 const VideoListItem = (video) => {
 
-    const { _id, thumbnail, title, actionType } = video;
+    const { _id, thumbnail, title, actionType, playlistName } = video;
     const { dispatch_data } = useData();
 
     return (
@@ -30,7 +30,11 @@ const VideoListItem = (video) => {
                 </Link>
 
                 <div className="container__listItem__button">
-                    <button onClick={() => { dispatch_data({ type: actionType, payload: { video: video } }) }}><FontAwesomeIcon icon={faTrashCan} /></button>
+                    <button onClick={() => playlistName ? dispatch_data({ type: actionType, payload: { video: video, playlistName: playlistName } })
+                        :
+                        dispatch_data({ type: actionType, payload: { video: video, } })}>
+                        <FontAwesomeIcon icon={faTrashCan} />
+                    </button>
                 </div>
 
             </div>

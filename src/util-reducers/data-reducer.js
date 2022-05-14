@@ -91,7 +91,7 @@ export function DataReducer(state_data, action) {
 
         case "ADD_TO_PLAYLIST":
             {
-                if (IsPresentInPlaylist(action.payload.video, action.payload.playlistName)) {
+                if (IsPresentInPlaylist(state_data, action.payload.video, action.payload.playlistName)) {
                     alert(`Removed from playlist ${action.payload.playlistName}`)
 
                     return {
@@ -118,7 +118,8 @@ export function DataReducer(state_data, action) {
             }
 
 
-        case "DELETE_FROM_PLAYLIST":
+        case "DELETE_FROM_PLAYLIST": {
+
             return {
                 ...state_data,
                 playlists: state_data.playlists.map((playlist) =>
@@ -128,6 +129,7 @@ export function DataReducer(state_data, action) {
                         } : playlist
                 )
             }
+        }
 
 
         case "CREATE_AND_ADD_TO_PLAYLIST": {

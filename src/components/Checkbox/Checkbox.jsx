@@ -6,7 +6,8 @@ import './checkbox.css';
 const Checkbox = ({ playlist, video }) => {
 
     const { _playlistName } = playlist;
-    const { dispatch_data } = useData();
+    const { state_data, dispatch_data } = useData();
+
 
     return (
         <>
@@ -16,7 +17,7 @@ const Checkbox = ({ playlist, video }) => {
                     id={_playlistName}
                     name={_playlistName}
                     onChange={() => dispatch_data({ type: "ADD_TO_PLAYLIST", payload: { video: video, playlistName: _playlistName } })}
-                    checked={() => IsPresentInPlaylist(video, _playlistName)}
+                    checked={IsPresentInPlaylist(state_data, video, _playlistName)}
                 />
 
                 <label htmlFor={_playlistName}>{_playlistName}</label>

@@ -5,17 +5,16 @@ import { useData } from '../../util-context';
 import { useParams } from 'react-router-dom';
 
 
-function getPlaylist(playlists, playlistName) {
-    return playlists.find((item) => item._playlistName === playlistName).playlistVideos;
-}
-
-
 
 const PlaylistVideo = () => {
 
     const { playlistName } = useParams();
-
     const { state_data } = useData();
+
+    function getPlaylist(playlists, playlistName) {
+        return playlists.find((item) => item._playlistName === playlistName).playlistVideos;
+    }
+
     const playlist = getPlaylist(state_data.playlists, playlistName);
 
 
@@ -33,7 +32,7 @@ const PlaylistVideo = () => {
                         </div>
                         {playlist.length === 0
                             ? <h1>Nothing Here</h1> :
-                            playlist?.map((video) => <VideoListItem key={video._id} {...video} />)
+                            playlist?.map((video) => <VideoListItem key={video._id} {...video} actionType={"DELETE_FROM_PLAYLIST"} playlistName={playlistName} />)
                         }
                     </div>
                 </div>
