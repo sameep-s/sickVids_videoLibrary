@@ -6,8 +6,8 @@ const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
 
-    const localEncodedToken = JSON.parse(localStorage.getItem('token'));
-    const localUser = JSON.parse(localStorage.getItem('user'));
+    const localEncodedToken = localStorage.getItem("tokenVL");
+    const localUser = localStorage.getItem("userVL");
     const [encodedToken, setEncodedToken] = useState(localEncodedToken);
     const [user, setUser] = useState(localUser);
 
@@ -16,13 +16,13 @@ const AuthProvider = ({ children }) => {
         try {
             const { data: { foundUser, encodedToken }, status } = await loginService(email, password);
             if (status === 200) {
-                localStorage.setItem("token", JSON.stringify(encodedToken));
-                localStorage.setItem("user", JSON.stringify(foundUser));
+                localStorage.setItem("tokenVL", encodedToken);
+                localStorage.setItem("userVL", foundUser);
                 setEncodedToken(encodedToken);
                 setUser(foundUser);
             }
         } catch (e) {
-            console.error("Error, Can't log in user", e);
+            console.error("Error, Can't log in userVL", e);
         }
 
     }
@@ -32,8 +32,8 @@ const AuthProvider = ({ children }) => {
         try {
             const { status, data: { encodedToken, createdUser } } = await signupService(email, password, confirmPassword, firstName, lastName, age);
             if (status === 201) {
-                localStorage.setItem('token', JSON.stringify(encodedToken));
-                localStorage.setItem("user", JSON.stringify(createdUser));
+                localStorage.setItem("tokenVL", encodedToken);
+                localStorage.setItem("userVL", createdUser);
                 setEncodedToken(encodedToken);
                 setUser(createdUser);
             }

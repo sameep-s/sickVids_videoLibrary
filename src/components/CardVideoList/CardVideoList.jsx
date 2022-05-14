@@ -53,8 +53,8 @@ const CardVideoList = (video) => {
                     </div>
                 </div>
 
-                {modalPlaylistOpen && <ModalPlaylist {...{ video, setModalPlaylistOpen }} />}
             </div>
+            {modalPlaylistOpen && <ModalPlaylist {...{ video, setModalPlaylistOpen }} />}
         </>
     )
 }
