@@ -1,18 +1,12 @@
 import React from 'react';
 import { useData } from '../../util-context';
+import { IsPresentInPlaylist } from '../../util-functions';
 import './checkbox.css';
 
 const Checkbox = ({ playlist, video }) => {
 
     const { _playlistName } = playlist;
-    const { state_data, dispatch_data } = useData();
-
-    function videoIsPresent(video, playlistName) {
-        const playlist = state_data.playlists.find((i) => i._playlistName === playlistName);
-
-        return (playlist.playlistVideos.filter((i) => i._id === video._id).length) > 0;
-    }
-
+    const { dispatch_data } = useData();
 
     return (
         <>
@@ -22,7 +16,7 @@ const Checkbox = ({ playlist, video }) => {
                     id={_playlistName}
                     name={_playlistName}
                     onChange={() => dispatch_data({ type: "ADD_TO_PLAYLIST", payload: { video: video, playlistName: _playlistName } })}
-                    checked={videoIsPresent(video, _playlistName)}
+                    checked={() => IsPresentInPlaylist(video, _playlistName)}
                 />
 
                 <label htmlFor={_playlistName}>{_playlistName}</label>

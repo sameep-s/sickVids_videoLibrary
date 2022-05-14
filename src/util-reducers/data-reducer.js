@@ -1,5 +1,5 @@
 import { presentInWatchLater } from "../util-functions/presentInWatchLater";
-import { isVideoPresentInLiked } from "../util-functions";
+import { IsPresentInPlaylist, isVideoPresentInLiked } from "../util-functions";
 
 
 export function DataReducer(state_data, action) {
@@ -91,7 +91,7 @@ export function DataReducer(state_data, action) {
 
         case "ADD_TO_PLAYLIST":
             {
-                if (videoIsPresent(action.payload.video, action.payload.playlistName)) {
+                if (IsPresentInPlaylist(action.payload.video, action.payload.playlistName)) {
                     alert(`Removed from playlist ${action.payload.playlistName}`)
 
                     return {
