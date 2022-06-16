@@ -43,10 +43,13 @@ const VideoComponent = (video) => {
     }
 
     function dislikeHandler() {
-        user ?
+
+        if (!user) navigate('/login', { replace: true })
+
+        else {
             dispatch_data({ type: "DISLIKE_VIDEO", payload: { video: video } })
-            :
-            navigate('/login', { replace: true })
+            isLiked && setVideoLikes(videoLikes - 1);
+        }
     }
 
     function addToPLaylistHandler() {
@@ -73,7 +76,7 @@ const VideoComponent = (video) => {
                             <span>{views} views </span>
                         </div>
                         <div className="videoFrame__info__inner2">
-                            <button onClick={addToLikeHandler}><FontAwesomeIcon icon={faThumbsUp} style={isLiked ? { color: "blue" } : ""} /> {videoLikes} </button>
+                            <button onClick={addToLikeHandler}><FontAwesomeIcon icon={faThumbsUp} style={isLiked ? { color: "var(--primary)" } : ""} /> {videoLikes} </button>
 
                             <button onClick={dislikeHandler}><FontAwesomeIcon icon={faThumbsDown} /> DISLIKE</button>
                             <button onClick={addToPLaylistHandler}><FontAwesomeIcon icon={faClock} /> Add To Playlist</button>

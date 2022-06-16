@@ -47,22 +47,30 @@
     margin-left: auto;
 }
 
-.videoFrame__info__inner2 button
+.videoFrame__info__inner2 > button
 {
     color: black;
     background-color: white;
     padding: 1rem 1rem;
     cursor: pointer;
     border: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     font-size: 1.5rem;
     font-weight: bold;
     margin-right: .5rem;
     transition: 360ms;
 }
 
+.svg-inline--fa{
+    font-size: 2.4rem;
+    margin-right: .5rem;
+}
+
 .videoFrame__info__inner2 button:hover
 {
-    background-color: var(--dark-shade);
+    background-color: var(--dark);
 }
 
 .videoLiked

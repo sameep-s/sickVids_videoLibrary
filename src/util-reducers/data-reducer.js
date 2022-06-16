@@ -6,10 +6,6 @@ import toast from "react-hot-toast";
 
 export function DataReducer(state_data, action) {
 
-    console.log(`state_data`, state_data)
-
-
-
     switch (action.type) {
 
         case "SET_VIDEOS":

@@ -7,11 +7,11 @@ const VideoListing = () => {
 
     const { state_data } = useData();
     const videoData = [...state_data.videos];
-  
+
     return (
         <>
             <div className="main__wrapper pos-rel">
-                <Navbar />
+                <Navbar search />
                 <div className="container__main__videoListing  flex">
                     <Sidebar />
                     {videoData?.length === 0 ? <h1 className='m-4'>Loading...</h1>
