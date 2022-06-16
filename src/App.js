@@ -32,7 +32,7 @@ function App() {
         <Route path="/videoPage" element={<VideoPage />} />
         <Route path="/videoPage/:videoId" element={<VideoPage />} />
         <Route path="*" element={<Error404 />} />
-          
+
         {/* Private Routes */}
         <Route path="/watchLater" element={<RequireAuth><WatchLater /></RequireAuth>} />
         <Route path="/playlists" element={<RequireAuth><PlaylistPage /></RequireAuth>} />
@@ -40,7 +40,6 @@ function App() {
         <Route path="/history" element={<RequireAuth><History /></RequireAuth>} />
         <Route path="/likedVideos" element={<RequireAuth><LikedVIdeos /></RequireAuth>} />
       </Routes>
-      <div className="App" />
     </BrowserRouter>
   );
 }

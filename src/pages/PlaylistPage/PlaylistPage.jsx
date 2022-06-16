@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import './playlistPage.css';
 import { Navbar, Sidebar, PlaylistItem } from '../../components';
-
 import { useData } from '../../util-context';
-
-
+import toast from 'react-hot-toast';
 
 
 const PlaylistPage = () => {
@@ -14,17 +12,16 @@ const PlaylistPage = () => {
 
     function createPlaylistHandler() {
         if (playlistName.length === 0) {
-            alert("Length of name Can't be zero")
+            toast.error("Length of name Can't be zero");
             return;
         }
         if (state_data.playlists.filter((item) => item._playlistName === playlistName).length === 1) {
             setPlaylistName("");
-            alert("playlist with this name already exists, try a different name");
+            toast.error("playlist with this name already exists, try a different name");
             return
         }
 
         dispatch_data({ type: "CREATE_NEW_PLAYLIST", payload: { playlistName: playlistName } })
-        alert("playlist Created Sussessfully");
         setPlaylistName("");
 
     }

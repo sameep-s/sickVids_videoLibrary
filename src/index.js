@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { DataProvider, AuthProvider } from "./util-context";
+import { Toaster } from "react-hot-toast";
 
 
 import { makeServer } from "./server";
@@ -14,6 +15,14 @@ ReactDOM.render(
     <DataProvider>
       <AuthProvider>
         <App />
+        <Toaster toastOptions={
+          {
+            duration: 1500,
+            style: {
+              fontSize: "2rem"
+            },
+          }}
+        />
       </AuthProvider>
     </DataProvider>
   </React.StrictMode>,

@@ -12,6 +12,7 @@ const Checkbox = ({ playlist, video }) => {
     return (
         <>
             <div className="wrapper__checkbox flex a-item-center mt-1 mb-1">
+
                 <input
                     type="checkbox"
                     id={_playlistName}

@@ -1,6 +1,6 @@
 import { presentInWatchLater } from "../util-functions/presentInWatchLater";
 import { IsPresentInPlaylist, isVideoPresentInLiked } from "../util-functions";
-
+import toast from "react-hot-toast";
 
 export function DataReducer(state_data, action) {
 
@@ -19,6 +19,8 @@ export function DataReducer(state_data, action) {
             }
 
         case "REMOVE_FROM_HISTORY": {
+            toast.success("Removed From History");
+
             return {
                 ...state_data, history: state_data.history.filter((item) => item.timeStamp !== action.payload.video.timeStamp)
             }
@@ -26,7 +28,7 @@ export function DataReducer(state_data, action) {
 
         case "DELETE_HISTORY":
             {
-                alert("History Deleted");
+                toast.success("History Deleted");
 
                 return {
                     ...state_data, history: []
@@ -37,18 +39,23 @@ export function DataReducer(state_data, action) {
             {
 
                 if (presentInWatchLater(state_data.watchLater, action.payload.video)) {
+                    toast.error(`Removed From WatchLater`);
+
                     return {
                         ...state_data, watchLater: [...state_data.watchLater.filter((item) => item._id !== action.payload.video._id)]
                     }
-                } else
+                } else {
 
+                    toast.success(`Added to WatchLater`);
                     return {
                         ...state_data, watchLater: [...state_data.watchLater, action.payload.video]
                     }
+                }
             }
 
         case "REMOVE_FROM_WATCHLATER":
             {
+                toast.error(`Removed From WatchLater`);
                 return {
                     ...state_data, watchLater: [...state_data.watchLater.filter((item) => item._id !== action.payload.video._id)]
                 }
@@ -73,26 +80,34 @@ export function DataReducer(state_data, action) {
 
 
         case "REMOVE_FROM_LIKED_VIDEOS":
-            return {
-                ...state_data, liked: [...state_data.liked.filter((item) => item._id !== action.payload.video._id)]
+            {
+                toast.success(`Removed From Liked Videos`)
+                return {
+                    ...state_data, liked: [...state_data.liked.filter((item) => item._id !== action.payload.video._id)]
+                }
             }
 
 
         case "CREATE_NEW_PLAYLIST":
-
-            return {
-                ...state_data, playlists: [...state_data.playlists, { _playlistName: action.payload.playlistName, playlistVideos: [] }]
+            {
+                toast.success("playlist Created Sussessfully");
+                return {
+                    ...state_data, playlists: [...state_data.playlists, { _playlistName: action.payload.playlistName, playlistVideos: [] }]
+                }
             }
 
 
         case "DELETE_PLAYLIST":
-            return { ...state_data, playlists: [...state_data.playlists.filter((item) => item._playlistName !== action.payload.playlistName)] }
+            {
+                toast.error("Playlist Deleted");
 
+                return { ...state_data, playlists: [...state_data.playlists.filter((item) => item._playlistName !== action.payload.playlistName)] }
+            }
 
         case "ADD_TO_PLAYLIST":
             {
                 if (IsPresentInPlaylist(state_data, action.payload.video, action.payload.playlistName)) {
-                    alert(`Removed from playlist ${action.payload.playlistName}`)
+                    toast.error(`Removed from playlist ${action.payload.playlistName}`)
 
                     return {
                         ...state_data,
@@ -105,8 +120,7 @@ export function DataReducer(state_data, action) {
                     }
                 }
                 else {
-                    alert(`added to playlist ${action.payload.playlistName}`)
-
+                    toast.success(`added to playlist ${action.payload.playlistName}`);
                     return {
                         ...state_data,
                         playlists: state_data.playlists.map((playlist) =>
@@ -119,6 +133,7 @@ export function DataReducer(state_data, action) {
 
 
         case "DELETE_FROM_PLAYLIST": {
+            toast.error("Removed From Playlist");
 
             return {
                 ...state_data,
@@ -133,6 +148,9 @@ export function DataReducer(state_data, action) {
 
 
         case "CREATE_AND_ADD_TO_PLAYLIST": {
+            toast.success("playlist Created Sussessfully");
+            toast.success(`added to playlist ${action.payload.playlistName}`);
+
             return {
                 ...state_data,
                 playlists: [...state_data.playlists, { _playlistName: action.payload.playlistName, playlistVideos: [action.payload.video] }]

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useData } from '../../util-context';
 import { Checkbox } from '../';
 import "./modalPlaylist.css";
+import toast, { Toaster } from 'react-hot-toast';
 
 const ModalPlaylist = ({ video, setModalPlaylistOpen }) => {
 
@@ -23,9 +24,6 @@ const ModalPlaylist = ({ video, setModalPlaylistOpen }) => {
         }
 
         dispatch_data({ type: "CREATE_AND_ADD_TO_PLAYLIST", payload: { playlistName: playlistName, video: video } })
-
-        alert("playlist Created Sussessfully");
-        alert(`added to playlist ${playlistName}`);
         setPlaylistName("");
     }
 
