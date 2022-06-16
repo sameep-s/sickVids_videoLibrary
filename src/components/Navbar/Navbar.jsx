@@ -5,7 +5,7 @@ import { faMagnifyingGlass, faHome } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../util-context';
 
-const Navbar = ({ search }) => {
+const Navbar = ({ search, setSearchVal }) => {
 
 
     const { user, setUser } = useAuth();
@@ -41,6 +41,7 @@ const Navbar = ({ search }) => {
                                 name=""
                                 id=""
                                 placeholder="search"
+                                onChange={(e) => setSearchVal(e.target.value)}
                             />
                         </div>
                     }

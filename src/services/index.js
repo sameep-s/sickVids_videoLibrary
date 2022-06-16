@@ -4,6 +4,7 @@ import { addToWatchLater, removeFromWatchLater, clearWatchLater } from "./watchL
 import { createNewPlaylist, removePlaylist, removeFromPLaylist, addToPlaylist } from "./playlist/playListService";
 import { addToLike, removeFromLike } from "./like/likeService";
 import { addToHistory, removeFromHistory, clearHistory } from "./history/historyService";
+import { filterSearchDebounced } from "./filterServices";
 
 export {
     signupService,
@@ -19,5 +20,6 @@ export {
     removeFromLike,
     addToHistory,
     removeFromHistory,
-    clearHistory
+    clearHistory,
+    filterSearchDebounced
 };
