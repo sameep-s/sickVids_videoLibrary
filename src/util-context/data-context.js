@@ -17,7 +17,7 @@ const DataProvider = ({ children }) => {
                 const dataResponse = await axios.get('/api/videos');
                 const videos = dataResponse.data.videos;
                 dispatch_data({ type: "SET_VIDEOS", payload: { videos: videos } })
-                console.log(`videos`, videos);
+                console.log(`videos`, dataResponse.data);
 
             }
             catch (e) {

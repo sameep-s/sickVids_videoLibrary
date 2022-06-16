@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './videoComponent.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp, faThumbsDown, faClock, faListSquares, faCheck } from '@fortawesome/free-solid-svg-icons';
@@ -9,12 +9,22 @@ import { Navigate, useNavigate } from 'react-router-dom';
 
 
 const VideoComponent = (video) => {
+    const { _id, title, source, views, disliked, liked, description, likes } = video;
+
     const { user } = useAuth();
     const navigate = useNavigate();
+
     const { state_data, dispatch_data } = useData();
     const [modalPlaylistOpen, setModalPlaylistOpen] = useState(false);
+    const [videoLikes, setVideoLikes] = useState(0);
 
-    const { _id, title, source, views, disliked, liked, description, likes } = video;
+    useEffect(() => {
+        setVideoLikes(likes);
+
+    }, [likes]);
+
+
+    const isLiked = isVideoPresentInLiked(state_data.liked, _id);
 
     function addToWatchLaterHandler() {
         user ?
@@ -24,11 +34,12 @@ const VideoComponent = (video) => {
     }
 
     function addToLikeHandler() {
-        user ?
-            dispatch_data({ type: "LIKE_VIDEO", payload: { video: video } })
-            :
-            navigate('/login', { replace: true })
+        if (!user) navigate('/login', { replace: true })
 
+        else {
+            dispatch_data({ type: "LIKE_VIDEO", payload: { video: video } })
+            isLiked ? setVideoLikes(videoLikes - 1) : setVideoLikes(videoLikes + 1);
+        }
     }
 
     function dislikeHandler() {
@@ -46,7 +57,6 @@ const VideoComponent = (video) => {
 
     }
 
-    const isLiked = isVideoPresentInLiked(state_data.liked, _id);
 
     return (
         <>
@@ -63,7 +73,8 @@ const VideoComponent = (video) => {
                             <span>{views} views </span>
                         </div>
                         <div className="videoFrame__info__inner2">
-                            <button onClick={addToLikeHandler}><FontAwesomeIcon icon={faThumbsUp} style={!isLiked ? { color: "blue" } : ""} /> {likes}</button>
+                            <button onClick={addToLikeHandler}><FontAwesomeIcon icon={faThumbsUp} style={isLiked ? { color: "blue" } : ""} /> {videoLikes} </button>
+
                             <button onClick={dislikeHandler}><FontAwesomeIcon icon={faThumbsDown} /> DISLIKE</button>
                             <button onClick={addToPLaylistHandler}><FontAwesomeIcon icon={faClock} /> Add To Playlist</button>
                             <button onClick={addToWatchLaterHandler}> <FontAwesomeIcon icon={presentInWatchLater(state_data.watchLater, video) ? faCheck : faListSquares} className=" pr-1" />Watch Later</button>

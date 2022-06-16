@@ -2,7 +2,13 @@ import { presentInWatchLater } from "../util-functions/presentInWatchLater";
 import { IsPresentInPlaylist, isVideoPresentInLiked } from "../util-functions";
 import toast from "react-hot-toast";
 
+
+
 export function DataReducer(state_data, action) {
+
+    console.log(`state_data`, state_data)
+
+
 
     switch (action.type) {
 
@@ -61,16 +67,18 @@ export function DataReducer(state_data, action) {
                 }
             }
 
-        case "LIKE_VIDEO":
-            return isVideoPresentInLiked(state_data.liked, action.payload.video._id) ?
-                {
-                    ...state_data, liked: [...state_data.liked, action.payload.video]
-                }
-                :
-                {
+        case "LIKE_VIDEO": {
+            if (isVideoPresentInLiked(state_data.liked, action.payload.video._id)) {
+                return {
                     ...state_data, liked: [...state_data.liked.filter((video) => video._id !== action.payload.video._id)]
                 }
 
+            } else {
+                return {
+                    ...state_data, liked: [...state_data.liked, action.payload.video]
+                }
+            }
+        }
 
         case "DISLIKE_VIDEO":
 
