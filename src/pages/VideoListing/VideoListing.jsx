@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './videolisting.css';
 import { Navbar, Sidebar, CardVideoList } from '../../components';
 import { useData } from '../../util-context';
-import { filterSearchDebounced } from '../../services';
 import { filterSearch } from '../../services/filterServices';
 
 const VideoListing = () => {
@@ -12,11 +11,7 @@ const VideoListing = () => {
     const { state_data } = useData();
     const videoData = [...state_data.videos];
 
-    const videoDataFiltered = filterSearchDebounced(videoData, searchVal);
     const videoDataSearch = filterSearch(videoData, searchVal);
-
-    console.log(`vdf`, videoDataFiltered);
-    console.log(`vds`, videoDataSearch);
 
 
     return (

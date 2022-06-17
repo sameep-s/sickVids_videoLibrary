@@ -4,12 +4,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faHome } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../util-context';
+import { debounce } from '../../services/filterServices';
 
 const Navbar = ({ search, setSearchVal }) => {
 
 
     const { user, setUser } = useAuth();
     const navigate = useNavigate();
+
+    const debounceSearchHandler = debounce((e) => setSearchVal(e.target.value))
 
     const logoutHandler = () => {
         localStorage.removeItem('token');
@@ -41,7 +44,7 @@ const Navbar = ({ search, setSearchVal }) => {
                                 name=""
                                 id=""
                                 placeholder="search"
-                                onChange={(e) => setSearchVal(e.target.value)}
+                                onChange={(e) => debounceSearchHandler(e)}
                             />
                         </div>
                     }
